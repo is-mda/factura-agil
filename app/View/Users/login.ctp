@@ -1,4 +1,4 @@
-<h1 class="main-title"><span class="glyphicon glyphicon-user"></span> Sign in</h1>
+<h1 class="main-title"><span class="glyphicon glyphicon-log-in"></span> Sign in</h1>
 
 <?php echo $this->Session->flash('auth'); ?>
 

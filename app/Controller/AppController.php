@@ -6,11 +6,8 @@ class AppController extends Controller {
     
     public $components = array(
         'Session',
-        'Auth' => array(            
-            'loginAction' => array(
-                'controller' => 'users',
-                'action' => 'login'
-            ),
+        'Messaging',
+        'Auth' => array(
             'authenticate' => array(
                 'Form' => array(
                     'fields' => array('username' => 'email')
