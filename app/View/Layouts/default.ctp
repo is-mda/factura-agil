@@ -25,7 +25,7 @@
     <div id="content" class="container">
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
-        <?php echo $this->element('sql_dump'); ?>
+        <?php echo $this->element('custom_sql_dump'); ?>
     </div>    
     
     <?php echo $this->Html->script(array('jquery'));?>
