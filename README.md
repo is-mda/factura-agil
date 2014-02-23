@@ -14,11 +14,10 @@ Installation
 --------------
 
 ```sh
-git clone [git-repo-url] factura-agil
+git clone git@github.com:is-mda/factura-agil.git factura-agil
 cd factura-agil/app
 cp Config/database.php.default Config/database.php
 ./Console/cake schema create
-mkdir -p public/files/{md,html,pdf}
 ```
 Remember to modified the database config file as needed, the default config needs to database at the mysql server (factura_agil_development, factura_agil_test)
 
