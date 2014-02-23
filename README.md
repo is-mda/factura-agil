@@ -19,7 +19,7 @@ cd factura-agil/app
 cp Config/database.php.default Config/database.php
 ./Console/cake schema create
 ```
-Remember to modified the database config file as needed, the default config needs to database at the mysql server (factura_agil_development, factura_agil_test)
+Remember to modified the database config file as needed, the default config needs 2 databases at the mysql server (factura_agil_development, factura_agil_test)
 
 Apache config
 ---------------
