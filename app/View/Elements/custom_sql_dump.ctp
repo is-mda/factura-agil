@@ -37,7 +37,7 @@ if ($noLogs || isset($_forced_from_dbo_)):
 	foreach ($sqlLogs as $source => $logInfo): 
             $text = $logInfo['count'] > 1 ? 'queries' : 'query';
         ?>
-        <div class="panel panel-default">
+        <div class="panel panel-default sql-log-panel">
             <div class="panel-heading">Sql log <?php printf('<strong>(%s) %s %s took %s ms</strong>', $source, $logInfo['count'], $text, $logInfo['time']); ?></div>
         <?php
 		printf(

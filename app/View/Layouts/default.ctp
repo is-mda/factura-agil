@@ -11,6 +11,7 @@
 
             echo $this->Html->css('bootstrap.min');                
             echo $this->Html->css('bootstrap-theme.min');                
+            echo $this->Html->css('normalize');                
             echo $this->Html->css('common');                
 
             echo $this->fetch('meta');

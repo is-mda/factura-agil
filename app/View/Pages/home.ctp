@@ -5,7 +5,7 @@ endif;
 
 App::uses('Debugger', 'Utility');
 ?>
-<h2><?php echo __d('cake_dev', 'App install status'); ?></h2>
+<h1 class="main-title"><span class="glyphicon glyphicon-tasks"></span> <?php echo __d('cake_dev', 'App install status'); ?></h1>
 <?php
 if (Configure::read('debug') > 0):
 	Debugger::checkSecurityKeys();

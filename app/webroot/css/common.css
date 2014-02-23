@@ -1,10 +1,24 @@
 #content {
-  margin-top: 50px;
-  margin-bottom: 10px;
-  border: 1px solid #eee; 
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  padding: 10px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: 1px solid #eee; 
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 15px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+}
+
+.sql-log-panel {
+    margin-top: 20px;
+}
+
+.main-title {
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.main-title span.glyphicon {
+    color: #428bca;
 }
