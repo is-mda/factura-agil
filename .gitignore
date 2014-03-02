@@ -20,3 +20,7 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+
+# IDE settings
+app/.idea/
