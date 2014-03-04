@@ -17,7 +17,12 @@
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('Companies'), 
                             '#', 
                             array('title' => __('companies management'), 'escape' => false)); ?>
-                </li>                    
+                </li>
+                <li>
+                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> ' . __('Clients'),
+                        '#',
+                        array('title' => __('clients management'), 'escape' => false)); ?>
+                </li>
             </ul>
             <div class="navbar-right">
                 <p class="navbar-text"><span class="glyphicon glyphicon-user"></span> <?php echo AuthComponent::user('name') ?></p>
