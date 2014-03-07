@@ -22,3 +22,7 @@
 .main-title span.glyphicon {
     color: #428bca;
 }
+
+td.actions span.glyphicon {
+    margin-right: 10px;
+}
