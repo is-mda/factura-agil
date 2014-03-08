@@ -11,24 +11,24 @@
 			<?php echo h($client['Client']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Nif'); ?></dt>
+		<dt><?php echo __('Fiscal Code'); ?></dt>
 		<dd>
-			<?php echo h($client['Client']['nif']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($client['Client']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($client['Client']['modified']); ?>
+			<?php echo h($client['Client']['fiscal_code']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Email'); ?></dt>
 		<dd>
 			<?php echo h($client['Client']['email']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Address'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['address']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Country'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['country']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Phone'); ?></dt>
@@ -39,6 +39,26 @@
 		<dt><?php echo __('Fax'); ?></dt>
 		<dd>
 			<?php echo h($client['Client']['fax']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Postal Code'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['postal_code']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Bank Account Number'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['bank_account_number']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($client['Client']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

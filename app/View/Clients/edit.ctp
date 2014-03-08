@@ -1,23 +1,23 @@
-<div class="clients form">
-<?php echo $this->Form->create('Client'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Client'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('nif');
-		echo $this->Form->input('email');
-		echo $this->Form->input('phone');
-		echo $this->Form->input('fax');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Client.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Client.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Clients'), array('action' => 'index')); ?></li>
-	</ul>
-</div>
+<h1 class="main-title"><span class="glyphicon glyphicon-edit"></span> Edit Client</h1>
+
+<?php echo $this->Form->create('Client', array('role' => 'form')); ?>
+	<?php
+		echo $this->Form->input('id', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('email', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('country', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('phone', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('fax', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('postal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('bank_account_number', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+	?>
+<?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn btn-default', 'div' => array('class' => 'pull-left') )); ?>
+
+<div class="btn-group form-actions pull-right">
+
+		<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ' . __('Delete'), array('action' => 'delete', $this->Form->value('Client.id')), array('class' => 'btn btn-default btn-sm', 'escape' => false), __('Are you sure you want to delete # %s?', $this->Form->value('Client.id'))); ?>		<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt"></span> ' . __('List Clients'), array('action' => 'index'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?></div>
+
+<div class="clearfix"></div>
