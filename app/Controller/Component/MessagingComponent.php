@@ -10,8 +10,8 @@ class MessagingComponent extends Component {
         $this->controller = $controller;
     }
 
-    public function message($type, $message, $namespace = null) {
-        $this->controller->Session->setFlash($message, 'default', array('class' => "alert alert-$type"), $namespace);
+    public function message($type, $message, $namespace = null) {        
+        $this->controller->Session->setFlash($message, 'default', array('class' => "alert alert-$type"), $namespace?$namespace:'flash');
     }
     
     public function info($message, $namespace = null) {
