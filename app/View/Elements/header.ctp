@@ -8,7 +8,7 @@
         <?php if(AuthComponent::user('id')): ?>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoices'), 
                             '#', 
                             array('title' => __('invoices management'), 'escape' => false)); ?>
@@ -19,8 +19,8 @@
                             array('title' => __('companies management'), 'escape' => false)); ?>
                 </li>
                 <li>
-                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> ' . __('Clients'),
-                        '#',
+                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('Clients'),
+                        array('controller' => 'clients'),
                         array('title' => __('clients management'), 'escape' => false)); ?>
                 </li>
             </ul>
