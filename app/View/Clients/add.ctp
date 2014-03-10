@@ -13,10 +13,10 @@
 		echo $this->Form->input('postal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('bank_account_number', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 	?>
-<?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn btn-default', 'div' => array('class' => 'pull-left') )); ?>
+<?php echo $this->Form->end(array('label' => __('Save'), 'class' => 'btn btn-success btn-sm', 'div' => array('class' => 'pull-left') )); ?>
 
 <div class="btn-group form-actions pull-right">
 
-		<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt"></span> ' . __('List Clients'), array('action' => 'index'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?></div>
+		<?php echo $this->Html->link('<span class="glyphicon glyphicon-list-alt"></span> ' . __('List Clients'), array('action' => 'index'), array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?></div>
 
 <div class="clearfix"></div>

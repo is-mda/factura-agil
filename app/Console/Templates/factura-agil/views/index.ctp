@@ -56,27 +56,21 @@
 	echo "<?php endforeach; ?>\n";
 	?>
 	</table>
-        <?= '<?php if($this->Paginator->hasPrev() or $this->Paginator->hasNext()): ?>' ?>
-	<ul class="pagination">
-	<?= "\t\t<li><?= \$this->Paginator->prev('&laquo;', array('escape' => false), null, array('class' => 'disabled', 'tag' => 'li', 'escape' => false)) ?></li>\n" ?>
-	<?= "\t\t<?= \$this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a', 'currentClass' => 'active')) ?>\n" ?>
-        <?= "\t\t<li><?= \$this->Paginator->next('&raquo;', array('escape' => false), null, array('class' => 'disabled', 'tag' => 'li', 'escape' => false)) ?></li>\n" ?>	
-	</ul>
-        <?= '<?php endif; ?>' ?>
 </div>
+<?= "<?= \$this->element('pagination') ?>" ?>
 <?= "<?php else: ?>" ?>
-<div class="alert alert-warning"><span class="glyphicon glyphicon-bell"></span> <?= "<?php echo __('No " . Inflector::humanize($details['controller']) . " data') ?></div>" ?>
+<div class="alert alert-warning"><span class="glyphicon glyphicon-bell"></span> <?= "<?php echo __('No " . strtolower($pluralHumanName) . " data') ?>" ?></div>
 <?= "<?php endif; ?>" ?>
 
 <div class="btn-group actions">
-    <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus-sign\"></span> ' . __('New " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?>"; ?>
+    <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus-sign\"></span> ' . __('New " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>"; ?>
     <?php
 	$done = array();
 	foreach ($associations as $type => $data) {
 		foreach ($data as $alias => $details) {
 			if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-				echo "\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list-alt\"></span> ' . __('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?>\n";
-				echo "\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus-sign\"></span> ' . __('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?>\n";
+				echo "\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list-alt\"></span> ' . __('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index'), array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>\n";
+				echo "\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus-sign\"></span> ' . __('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>\n";
 				$done[] = $details['controller'];
 			}
 		}

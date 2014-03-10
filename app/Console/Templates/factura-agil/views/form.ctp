@@ -35,15 +35,15 @@
 			}
 		}
 		echo "\t?>\n";
-	echo "<?php echo \$this->Form->end(array('label' => __('Submit'), 'class' => 'btn btn-default', 'div' => array('class' => 'pull-left') )); ?>\n";
+	echo "<?php echo \$this->Form->end(array('label' => __('Save'), 'class' => 'btn btn-success btn-sm', 'div' => array('class' => 'pull-left') )); ?>\n";
 ?>
 
 <div class="btn-group form-actions pull-right">
 
 <?php if (strpos($action, 'add') === false): ?>
-		<?php echo "<?php echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> ' . __('Delete'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), array('class' => 'btn btn-default btn-sm', 'escape' => false), __('Are you sure you want to delete # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>"; ?>
+		<?php echo "<?php echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> ' . __('Delete'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), array('class' => 'btn btn-danger btn-sm', 'escape' => false), __('Are you sure you want to delete # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>"; ?>
 <?php endif; ?>
-		<?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list-alt\"></span> ' . __('List " . $pluralHumanName . "'), array('action' => 'index'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?>"; ?>
+		<?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list-alt\"></span> ' . __('List " . $pluralHumanName . "'), array('action' => 'index'), array('class' => 'btn btn-primary btn-sm', 'escape' => false)); ?>"; ?>
 <?php
 		$done = array();
 		foreach ($associations as $type => $data) {

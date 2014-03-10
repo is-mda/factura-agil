@@ -15,8 +15,8 @@
                 </li>
                 <li <?php echo $this->params['controller'] == 'companies' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('Companies'), 
-                            '#', 
-                            array('title' => __('companies management'), 'escape' => false)); ?>
+                        array('controller' => 'companies', 'action' => 'index'),
+                        array('title' => __('companies management'), 'escape' => false)); ?>
                 </li>
                 <li <?php echo $this->params['controller'] == 'clients' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('Clients'),

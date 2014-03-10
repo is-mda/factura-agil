@@ -26,6 +26,7 @@
     <div id="content" class="container">
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
+        <div class="clearfix"></div>
         <?php echo $this->element('custom_sql_dump'); ?>
     </div>    
     
