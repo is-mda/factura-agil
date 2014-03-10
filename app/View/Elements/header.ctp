@@ -7,20 +7,20 @@
         </div> <!-- /.navbar-header -->       
         <?php if(AuthComponent::user('id')): ?>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
+            <ul class="nav navbar-nav">                
+                <li <?php echo $this->params['controller'] == 'invoices' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoices'), 
                             '#', 
                             array('title' => __('invoices management'), 'escape' => false)); ?>
                 </li>
-                <li>
+                <li <?php echo $this->params['controller'] == 'companies' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('Companies'), 
                             '#', 
                             array('title' => __('companies management'), 'escape' => false)); ?>
                 </li>
-                <li>
+                <li <?php echo $this->params['controller'] == 'clients' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('Clients'),
-                        array('controller' => 'clients'),
+                        array('controller' => 'clients', 'action' => 'index'),
                         array('title' => __('clients management'), 'escape' => false)); ?>
                 </li>
             </ul>

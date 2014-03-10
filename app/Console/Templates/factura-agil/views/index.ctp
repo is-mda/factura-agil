@@ -17,14 +17,14 @@
  */
 ?>
 <h1 class="main-title"><span class="glyphicon glyphicon-list-alt"></span> <?php echo "<?= __('{$pluralHumanName}') . ' ' . __('management') ?>"; ?></h1>
-
+<?= "<?php if(!empty(\${$pluralVar})): ?>" ?>
 <div class="panel panel-primary">
     <div class="panel-heading"><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></div>
     
 	<table class="table table-striped table-hover">
 	<tr>
 	<?php foreach ($fields as $field): ?>
-		<th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
+		<th><?= "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
 	<?php endforeach; ?>
                 <th class="actions"></th>
 	</tr>
@@ -64,6 +64,9 @@
 	</ul>
         <?= '<?php endif; ?>' ?>
 </div>
+<?= "<?php else: ?>" ?>
+<div class="alert alert-warning"><span class="glyphicon glyphicon-bell"></span> <?= "<?php echo __('No " . Inflector::humanize($details['controller']) . " data') ?></div>" ?>
+<?= "<?php endif; ?>" ?>
 
 <div class="btn-group actions">
     <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus-sign\"></span> ' . __('New " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default btn-sm', 'escape' => false)); ?>"; ?>
