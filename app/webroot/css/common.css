@@ -30,3 +30,19 @@ td.actions span.glyphicon {
 .pull-right.pagination {
     margin: 0;
 }
+
+.invoice-code, .invoice-date {
+    padding-bottom: 15px;    
+}
+
+.invoice-code label, .invoice-date label {
+    margin-right: 5px;
+}
+
+.invoice-code input, .invoice-date select {    
+    margin-left: 5px;
+}
+
+.add-line-action {
+    padding-bottom: 5px;
+}
