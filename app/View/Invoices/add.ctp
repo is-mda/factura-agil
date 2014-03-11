@@ -43,28 +43,30 @@
     </div>
 </div>
 
-<div class="pull-right add-line-action">
-    <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add line') ?></button>
-</div>
-
-<div class="clearfix"></div>
-
 <div class="panel panel-primary">
     <div class="panel-heading"><?= __('Invoice lines') ?></div>
-    <table class="table table-striped table-hover">
-        <tr>
-            <th><?php echo __('Item name'); ?></th>
-            <th><?php echo __('Price'); ?></th>
-            <th><?php echo __('Quantity'); ?></th>
-            <th><?php echo __('Amount'); ?></th>
-        </tr>
-        <tr>
-            <td class="col-md-5"><?= $this->Form->input('InvoiceLine.0.item_name', array('class' => 'form-control', 'div' => null, 'label' => false)) ?></td>
-            <td><?= $this->Form->input('InvoiceLine.0.item_price', array('class' => 'form-control', 'div' => null, 'label' => false)) ?></td>
-            <td class="col-md-1"><?= $this->Form->input('InvoiceLine.0.item_quantity', array('class' => 'form-control', 'div' => null, 'label' => false)) ?></td>
-            <td><?= $this->Form->input('InvoiceLine.0.amount', array('class' => 'form-control', 'div' => null, 'label' => false)) ?></td>
-        </tr>
+    <table class="table table-striped table-hover" id="invoice_lines">
+        <thead>
+            <tr>
+                <th><?php echo __('Item name'); ?></th>
+                <th><?php echo __('Price'); ?></th>
+                <th><?php echo __('Quantity'); ?></th>
+                <th><?php echo __('Amount'); ?></th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-md-5"><?= $this->Form->input('InvoiceLine.0.item_name', array('class' => 'form-control', 'data-field' => 'InvoiceLine.item_name', 'div' => null, 'label' => false)) ?></td>
+                <td><?= $this->Form->input('InvoiceLine.0.item_price', array('class' => 'form-control', 'data-field' => 'InvoiceLine.item_price', 'div' => null, 'label' => false)) ?></td>
+                <td class="col-md-1"><?= $this->Form->input('InvoiceLine.0.item_quantity', array('class' => 'form-control', 'data-field' => 'InvoiceLine.item_quantity', 'div' => null, 'label' => false)) ?></td>
+                <td><?= $this->Form->input('InvoiceLine.0.amount', array('class' => 'form-control', 'data-field' => 'InvoiceLine.amount', 'div' => null, 'label' => false)) ?></td>
+            </tr>            
+        </tbody>
     </table>
+</div>
+
+<div class="pull-right add-line-action">
+    <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add line') ?></button>
 </div>
 
 <div class="row">
