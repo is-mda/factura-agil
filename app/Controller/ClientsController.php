@@ -10,14 +10,6 @@ class ClientsController extends AppController {
 		$this->set('clients', $this->Paginator->paginate());
 	}
 
-	public function view($id = null) {
-		if (!$this->Client->exists($id)) {
-			throw new NotFoundException(__('Invalid client'));
-		}
-		$options = array('conditions' => array('Client.' . $this->Client->primaryKey => $id));
-		$this->set('client', $this->Client->find('first', $options));
-	}
-
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Client->create();

@@ -10,7 +10,7 @@
             <ul class="nav navbar-nav">                
                 <li <?php echo $this->params['controller'] == 'invoices' ? 'class="active"' : '' ?>>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoices'), 
-                            '#', 
+                            array('controller' => 'invoices', 'action' => 'index'),
                             array('title' => __('invoices management'), 'escape' => false)); ?>
                 </li>
                 <li <?php echo $this->params['controller'] == 'companies' ? 'class="active"' : '' ?>>

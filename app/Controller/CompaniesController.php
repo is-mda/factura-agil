@@ -12,14 +12,6 @@ class CompaniesController extends AppController {
 		$this->set('companies', $this->Paginator->paginate());
 	}
 
-	public function view($id = null) {
-		if (!$this->Company->exists($id)) {
-			throw new NotFoundException(__('Invalid company'));
-		}
-		$options = array('conditions' => array('Company.' . $this->Company->primaryKey => $id));
-		$this->set('company', $this->Company->find('first', $options));
-	}
-
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Company->create();
