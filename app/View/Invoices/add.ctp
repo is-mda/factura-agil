@@ -1,4 +1,6 @@
-<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> Add Invoice</h1>
+<?php $this->Html->script('invoice.manager', array('block' => 'scriptBottom')) ?>
+
+<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add Invoice') ?></h1>
 
 <?php echo $this->Form->create('Invoice', array('role' => 'form')); ?>
 
@@ -16,7 +18,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary panel-collapse">
             <div class="panel-heading"><?= __('Company') ?></div>
             <div class="panel-body">
                 <?php
@@ -29,7 +31,7 @@
         </div>        
     </div>
     <div class="col-md-6">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary panel-collapse">
             <div class="panel-heading"><?= __('Client') ?></div>
             <div class="panel-body">
                 <?php
@@ -66,7 +68,7 @@
 </div>
 
 <div class="pull-right add-line-action">
-    <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add line') ?></button>
+    <button class="btn btn-primary btn-sm add-line"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add line') ?></button>
 </div>
 
 <div class="row">

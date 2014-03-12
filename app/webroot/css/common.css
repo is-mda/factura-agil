@@ -46,3 +46,11 @@ td.actions span.glyphicon {
 .add-line-action {
     padding-bottom: 5px;
 }
+
+.panel-collapse .panel-body {
+    display: none;
+}
+
+.panel-collapse.open .panel-body {
+    display: block;
+}
