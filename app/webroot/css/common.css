@@ -31,6 +31,15 @@ td.actions span.glyphicon {
     margin: 0;
 }
 
+#invoice-lines .check {
+    padding: 0;
+    text-align: right;
+}
+
+#invoice-lines .check input {
+    margin-top: 15px;
+}
+
 .invoice-code, .invoice-date {
     padding-bottom: 15px;    
 }
@@ -47,10 +56,22 @@ td.actions span.glyphicon {
     padding-bottom: 5px;
 }
 
+.panel-collapse .panel-heading {
+    cursor: pointer;
+}
+
 .panel-collapse .panel-body {
     display: none;
 }
 
 .panel-collapse.open .panel-body {
     display: block;
+}
+
+input.currency, input.rate {
+    text-align: right;
+}
+
+input.quantity {
+    text-align: center;
 }
