@@ -3,12 +3,11 @@ App.InvoiceManager = function() {
     'use strict';
     
     var _config = {
-        formSelector: '#invoice',
         linesSelector: '#invoice-lines'
     };
     
     var _onInvoiceLinesChange = function(evt, grossAmount) {
-        App.InvoiceModel.update($(_config.formSelector), grossAmount);
+        App.InvoiceModel.update(grossAmount);
     };
 
     var init = function() {

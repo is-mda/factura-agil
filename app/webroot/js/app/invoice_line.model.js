@@ -2,8 +2,6 @@ App.InvoiceLineModel = function() {
 
     'use strict';
 
-    var _line = null;
-
     var _fields = {
         quantity: 'InvoiceLine.item_quantity',
         price: 'InvoiceLine.item_price',
@@ -12,16 +10,20 @@ App.InvoiceLineModel = function() {
 
     var Api = {};
 
+    var _setElement = function(el) {
+        App.Model.setElement(el);
+    };
+
     var _getQuantity = function() {
-        return parseInt($(_line).find('input[data-field="' + _fields.quantity + '"]').val());
+        return App.Model.getFieldValue(_fields.quantity);
     };
 
     var _getPrice = function() {
-        return parseFloat($(_line).find('input[data-field="' + _fields.price + '"]').val());
+        return App.Model.getFieldValue(_fields.price);
     };
 
     var _getAmount = function() {
-        return parseFloat($(_line).find('input[data-field="' + _fields.amount + '"]').val());
+        return App.Model.getFieldValue(_fields.amount);
     };
 
     var _evaluateAmount = function() {
@@ -37,22 +39,22 @@ App.InvoiceLineModel = function() {
     var _updateAmount = function() {        
         try {
             var amount = _evaluateAmount();
-            $(_line).find('input[data-field="' + _fields.amount + '"]').val(amount);
+            App.Model.setFieldValue(_fields.amount, amount);
             return amount;
         }
         catch (e) {
-            $(_line).find('input[data-field="' + _fields.amount + '"]').val('');
+            App.Model.emptyField(_fields.amount);
             return NaN;
         }
     };
 
     Api.evaluate = function(line) {
-        _line = line;
+        _setElement(line);
         return _updateAmount();
     };
     
     Api.getAmount = function(line) {
-        _line = line;
+        _setElement(line);
         return _getAmount();
     };
 

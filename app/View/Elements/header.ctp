@@ -28,7 +28,7 @@
                 <p class="navbar-text"><span class="glyphicon glyphicon-user"></span> <?php echo AuthComponent::user('name') ?></p>
                 <div class="btn-group">
   <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-      <span class="glyphicon glyphicon-plus-sign"></span> Add item <span class="caret"></span>
+      <span class="glyphicon glyphicon-plus-sign"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
     <li><?php echo $this->Html->link(__('New invoice'), array('controller' => 'invoices', 'action' => 'add')); ?></li>
@@ -36,7 +36,7 @@
     <li><?php echo $this->Html->link(__('New company'), array('controller' => 'companies', 'action' => 'add')); ?></li>
   </ul>
 </div>
-                <?php echo $this->Html->link('<span class="glyphicon glyphicon-log-out"></span> ' . __('Sign out'), '/sign_out', array('title' => __('Sign out'), 'class' => 'btn btn-default navbar-btn btn-sm', 'escape' => false)); ?>                                    
+                <?php echo $this->Html->link('<span class="glyphicon glyphicon-log-out"></span> ', '/sign_out', array('title' => __('Sign out'), 'class' => 'btn btn-default navbar-btn btn-sm', 'escape' => false)); ?>                                    
             </div>                
         </div> <!-- /.navbar-collapse -->     
         <?php else: ?>

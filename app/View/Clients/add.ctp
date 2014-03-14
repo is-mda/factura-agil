@@ -12,6 +12,7 @@
 		echo $this->Form->input('fax', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('postal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('bank_account_number', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('tax_rate', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 	?>
 <?php echo $this->Form->end(array('label' => __('Save'), 'class' => 'btn btn-success btn-sm', 'div' => array('class' => 'pull-left') )); ?>
 
