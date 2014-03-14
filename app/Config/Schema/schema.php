@@ -19,6 +19,7 @@ class AppSchema extends CakeSchema {
 		'fax' => array('type' => 'integer', 'null' => true, 'default' => null),
 		'postal_code' => array('type' => 'integer', 'null' => true, 'default' => null, 'length' => 10),
 		'bank_account_number' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 34, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'tax_rate' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 3),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'indexes' => array(
