@@ -1,5 +1,5 @@
 
-<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> Add Client</h1>
+<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add Client') ?></h1>
 
 <?php echo $this->Form->create('Client', array('role' => 'form')); ?>
 	<?php

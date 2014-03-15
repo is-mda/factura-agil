@@ -19,7 +19,7 @@ class InvoicesController extends AppController {
         $this->set('invoice', $this->Invoice->find('first', $options));
     }
 
-    public function add() {
+    public function add($client = null) {
         if ($this->request->is('post')) {
             $this->Invoice->create();
             if ($this->Invoice->save($this->request->data)) {
@@ -29,11 +29,20 @@ class InvoicesController extends AppController {
                 $this->Messaging->error(__('The invoice could not be saved. Please, try again.'));
             }
         }
-        $companies = $this->Invoice->Company->find('list');
-        $clients = $this->Invoice->Client->find('list');
-        $this->set(compact('companies', 'clients'));
+        if(empty($client)) return $this->redirect(array('action' => 'select_client'));
     }
 
+    public function select_client() {
+        if ($this->request->is('post')) return $this->redirect(array('action' => 'add', $this->request->data('Invoice.client_id')));        
+        $clients = $this->Invoice->Client->find('list', array('conditions' => array('Client.company_id' => $this->Workspace->get('id'))));
+        if(empty($clients)) {
+            $this->Messaging->info(__('You must create at least one client to can add invoices'));
+            return $this->redirect(array('controller' => 'clients', 'action' => 'add_then_add_invoice'));
+        }
+        if(count($clients) == 1) return $this->redirect(array('action' => 'add', key($clients)));
+        $this->set(compact('clients'));
+    }
+    
     public function edit($id = null) {
         if (!$this->Invoice->exists($id)) {
             throw new NotFoundException(__('Invalid invoice'));
