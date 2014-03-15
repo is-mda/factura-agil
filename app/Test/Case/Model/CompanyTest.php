@@ -14,12 +14,12 @@ class CompanyTest extends CakeTestCase {
     }
 
     public function testFindCount() {
-        $this->assertEqual($this->Company->find('count', array('recursive' => 0)), 1);
+        $this->assertEqual($this->Company->find('count', array('recursive' => 0)), 3);
     }
 
     public function testFindFirst() {
         $company = $this->Company->find('first', array('recursive' => 0));
-        $this->assertEqual($company['Company']['name'], 'Fedex, CIA');
+        $this->assertEqual($company['Company']['fiscal_code'], '466743AA');
     }
 
     public function tearDown() {

@@ -4,6 +4,8 @@ $this->Html->script('app/invoice.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_lines.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
+$companyName = $this->request->data('Invoice.company_name');
+$clientName = $this->request->data('Invoice.client_name');
 ?>
 <?php echo $this->Form->create('Invoice', array('role' => 'form', 'id' => 'invoice')); ?>
 
@@ -22,7 +24,7 @@ $this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-primary panel-collapse">
-            <div class="panel-heading"><?= __('Company') ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
+            <div class="panel-heading"><?= __('Company') ?><?php if(!empty($companyName)) echo ': ' . $this->Html->tag('strong', $companyName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
                 echo $this->Form->input('company_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
@@ -35,7 +37,7 @@ $this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
     </div>
     <div class="col-md-6">
         <div class="panel panel-primary panel-collapse">
-            <div class="panel-heading"><?= __('Client') ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
+            <div class="panel-heading"><?= __('Client') ?><?php if(!empty($clientName)) echo ': ' . $this->Html->tag('strong', $clientName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
                 echo $this->Form->input('client_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));

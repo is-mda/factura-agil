@@ -30,6 +30,7 @@ class InvoicesController extends AppController {
             }
         }
         if(empty($client)) return $this->redirect(array('action' => 'select_client'));
+        $this->request->data = $this->Invoice->prepareData($client, $this->Workspace->get('id'));
     }
 
     public function select_client() {

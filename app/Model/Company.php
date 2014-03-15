@@ -5,12 +5,6 @@ App::uses('AppModel', 'Model');
 class Company extends AppModel {
 
     public $displayField = 'name';
-    public $hasAndBelongsToMany = array(
-        'hasAccess' => array(
-            'className' => 'User',
-            'joinTable' => 'companies_users'
-        )
-    );
     public $hasMany = array('Client');
 
     public function afterSave($created, $options = array()) {
