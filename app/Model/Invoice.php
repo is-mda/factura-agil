@@ -36,11 +36,20 @@ class Invoice extends AppModel {
         )
     );
 
+    public function deleteNonExistentLines($data) {
+        $conditions = array('invoice_id' => $data['Invoice']['id']);
+        if (!empty($data['InvoiceLine'])) {
+            $conditions['NOT'] = array(
+                'InvoiceLine.id' => Hash::extract($data, 'InvoiceLine.{n}.id')
+            );
+        }
+        $this->InvoiceLine->deleteAll($conditions);
+    }
+
     public function prepareData($client, $company) {
         return array(
             'Invoice' => array_merge(
-                    $this->prepareClientData($client),
-                    $this->prepareCompanyData($company)
+                    $this->prepareClientData($client), $this->prepareCompanyData($company)
             )
         );
     }

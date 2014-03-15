@@ -4,6 +4,7 @@ $this->Html->script('app/invoice.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_lines.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
+$id = $this->request->data('Invoice.id');;
 $companyName = $this->request->data('Invoice.company_name');
 $clientName = $this->request->data('Invoice.client_name');
 ?>
@@ -11,6 +12,7 @@ $clientName = $this->request->data('Invoice.client_name');
 
 <div class="form-inline pull-left invoice-code">
     <?php
+    if(!empty($id)) echo $this->Form->hidden('id');
     echo $this->Form->input('code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
     ?>   
 </div>
@@ -27,6 +29,7 @@ $clientName = $this->request->data('Invoice.client_name');
             <div class="panel-heading"><?= __('Company') ?><?php if(!empty($companyName)) echo ': ' . $this->Html->tag('strong', $companyName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
+                echo $this->Form->hidden('company_id');
                 echo $this->Form->input('company_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('company_fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('company_address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
@@ -40,6 +43,7 @@ $clientName = $this->request->data('Invoice.client_name');
             <div class="panel-heading"><?= __('Client') ?><?php if(!empty($clientName)) echo ': ' . $this->Html->tag('strong', $clientName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
+                echo $this->Form->hidden('client_id');
                 echo $this->Form->input('client_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('client_fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('client_address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
@@ -50,29 +54,7 @@ $clientName = $this->request->data('Invoice.client_name');
     </div>
 </div>
 
-<div class="panel panel-primary">
-    <div class="panel-heading"><?= __('Invoice lines') ?></div>
-    <table class="table table-striped table-hover" id="invoice-lines">
-        <thead>
-            <tr>
-                <th></th>
-                <th><?php echo __('Item name'); ?></th>
-                <th><?php echo __('Price'); ?></th>
-                <th><?php echo __('Quantity'); ?></th>
-                <th><?php echo __('Amount'); ?></th>
-            </tr>            
-        </thead>
-        <tbody>
-            <tr>
-                <td class="check"><input type="checkbox"></td>
-                <td class="col-md-5"><?= $this->Form->input('InvoiceLine.0.item_name', array('class' => 'form-control', 'data-field' => 'InvoiceLine.item_name', 'div' => null, 'label' => false)) ?></td>
-                <td><?= $this->Form->input('InvoiceLine.0.item_price', array('class' => 'form-control currency', 'data-evaluable' => '1', 'data-field' => 'InvoiceLine.item_price', 'div' => null, 'label' => false)) ?></td>
-                <td class="col-md-1"><?= $this->Form->input('InvoiceLine.0.item_quantity', array('class' => 'form-control quantity', 'data-evaluable' => '1', 'data-field' => 'InvoiceLine.item_quantity', 'div' => null, 'label' => false)) ?></td>
-                <td><?= $this->Form->input('InvoiceLine.0.amount', array('class' => 'form-control currency', 'readonly', 'type' => 'text', 'data-field' => 'InvoiceLine.amount', 'div' => null, 'label' => false)) ?></td>
-            </tr>            
-        </tbody>
-    </table>
-</div>
+<?= $this->element('invoice_lines_form') ?>
 
 <div class="pull-right add-line-action">
     <button class="btn btn-danger btn-sm disabled remove-lines"><span class="glyphicon glyphicon-remove-circle"></span> <?= __('Remove lines') ?></button>

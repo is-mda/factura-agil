@@ -22,7 +22,7 @@ class InvoicesController extends AppController {
     public function add($client = null) {
         if ($this->request->is('post')) {
             $this->Invoice->create();
-            if ($this->Invoice->save($this->request->data)) {
+            if ($this->Invoice->saveAssociated($this->request->data)) {
                 $this->Messaging->success(__('The invoice has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {
@@ -49,7 +49,8 @@ class InvoicesController extends AppController {
             throw new NotFoundException(__('Invalid invoice'));
         }
         if ($this->request->is(array('post', 'put'))) {
-            if ($this->Invoice->save($this->request->data)) {
+            if ($this->Invoice->saveAssociated($this->request->data)) {
+                $this->Invoice->deleteNonExistentLines($this->request->data);
                 $this->Messaging->success(__('The invoice has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {
