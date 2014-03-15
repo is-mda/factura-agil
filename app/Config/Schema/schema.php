@@ -20,6 +20,7 @@ class AppSchema extends CakeSchema {
 		'postal_code' => array('type' => 'integer', 'null' => true, 'default' => null, 'length' => 10),
 		'bank_account_number' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 34, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'tax_rate' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 3),
+		'company_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'indexes' => array(
@@ -31,7 +32,7 @@ class AppSchema extends CakeSchema {
 	public $companies = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
 		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-		'fiscal_code' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'fiscal_code' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 50, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'address' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'country' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 2, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
@@ -43,10 +44,11 @@ class AppSchema extends CakeSchema {
 	);
 
 	public $companies_users = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 		'user_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10),
-		'company_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
+		'company_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10),
 		'indexes' => array(
-			
+			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);

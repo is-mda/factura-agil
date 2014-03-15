@@ -15,24 +15,22 @@ App.InvoiceLineModel = function() {
     };
 
     var _getQuantity = function() {
-        return App.Model.getFieldValue(_fields.quantity);
+        return App.Model.getFieldIntValue(_fields.quantity);
     };
 
     var _getPrice = function() {
-        return App.Model.getFieldValue(_fields.price);
+        return App.Model.getFieldFloatValue(_fields.price);
     };
 
     var _getAmount = function() {
-        return App.Model.getFieldValue(_fields.amount);
+        return App.Model.getFieldFloatValue(_fields.amount);
     };
 
     var _evaluateAmount = function() {
         var quantity = _getQuantity();
-        if (isNaN(quantity))
-            throw 'Invalid quantity';
+        if (isNaN(quantity)) throw 'Invalid quantity';
         var price = _getPrice();
-        if (isNaN(price))
-            throw 'Invalid price';
+        if (isNaN(price)) throw 'Invalid price';
         return quantity * price;
     };
 

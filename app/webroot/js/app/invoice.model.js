@@ -35,10 +35,7 @@ App.InvoiceModel = function() {
         App.Model.emptyField(_fields.taxAmount);
     };
     
-    var _update = function(grossAmount) {
-        if(isNaN(grossAmount)) {
-            _emptyValues();
-        }
+    var _update = function(grossAmount) {        
         var taxAmount = grossAmount * (_getTaxRate()/100);
         _setGrossAmount(grossAmount);
         _setTaxAmount(taxAmount);
@@ -49,7 +46,7 @@ App.InvoiceModel = function() {
     
     Api.update = function(grossAmount) {
         _setElement();
-        _update(grossAmount);
+        isNaN(grossAmount) ? _emptyValues() : _update(grossAmount);
     };
     
     return Api;

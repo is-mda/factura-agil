@@ -7,6 +7,7 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Messaging',
+        'Workspace',
         'Auth' => array(
             'authError' => false,
             'authenticate' => array(

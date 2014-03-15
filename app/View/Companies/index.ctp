@@ -21,6 +21,7 @@
                     <td><?php echo h($company['Company']['country']); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['created']); ?>&nbsp;</td>
                     <td class="actions">
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-star' . ((!empty($currentCompany) and $currentCompany['Company']['id'] == $company['Company']['id']) ? '': '-empty') . '"></span>', array('action' => 'select', $company['Company']['id']), array('escape' => false)); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $company['Company']['id']), array('escape' => false)); ?>
                         <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $company['Company']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $company['Company']['id'])); ?>
                     </td>

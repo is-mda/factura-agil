@@ -28,6 +28,7 @@ class UsersController extends AppController {
     }
     
     public function logout() {
+        $this->getEventManager()->dispatch(new CakeEvent('Controller.Users.logout' , $this));
         return $this->redirect($this->Auth->logout());
     }
     
