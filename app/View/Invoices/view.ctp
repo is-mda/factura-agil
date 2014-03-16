@@ -7,13 +7,13 @@
     <div class="col-xs-5">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                From: <?php echo h($invoice['Invoice']['company_name']); ?>
+                From: <?= $this->Html->tag('strong', $invoice['Invoice']['company_name']); ?>
             </div>
             <div class="panel-body">
                 <p>
-                    <?php echo h($invoice['Invoice']['company_fiscal_code']); ?> <br>
-                    <?php echo h($invoice['Invoice']['company_address']); ?> <br>
-                    <?php echo h($invoice['Invoice']['company_country']); ?> <br>
+                    <?= h($invoice['Invoice']['company_fiscal_code']); ?> <br>
+                    <?= h($invoice['Invoice']['company_address']); ?> <br>
+                    <?= h($invoice['Invoice']['company_country']); ?> <br>
                 </p>
             </div>
         </div>
@@ -21,13 +21,13 @@
     <div class="col-xs-5 col-xs-offset-2 text-right">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                To: <?php echo h($invoice['Invoice']['client_name']); ?>
+                To: <?= $this->Html->tag('strong', $invoice['Invoice']['client_name']); ?>
             </div>
             <div class="panel-body">
                 <p>
-                    <?php echo h($invoice['Invoice']['client_fiscal_code']); ?> <br>
-                    <?php echo h($invoice['Invoice']['client_address']); ?> <br>
-                    <?php echo h($invoice['Invoice']['client_country']); ?> <br>
+                    <?= h($invoice['Invoice']['client_fiscal_code']); ?> <br>
+                    <?= h($invoice['Invoice']['client_address']); ?> <br>
+                    <?= h($invoice['Invoice']['client_country']); ?> <br>
                 </p>
             </div>
         </div>
