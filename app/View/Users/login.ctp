@@ -7,4 +7,4 @@
    <?php echo $this->Form->input('email', array('class' => 'form-control', 'autofocus', 'div' => array('class' => 'form-group'))); ?>
    <?php echo $this->Form->input('password', array('class' => 'form-control', 'div' => array('class' => 'form-group'))); ?>
 
-<?php echo $this->Form->end(array('label' => __('Submit'), 'class' => 'btn btn-default', 'div' => null )); ?>
+<?php echo $this->Form->end(array('label' => __('Sign in'), 'class' => 'btn btn-success', 'div' => null )); ?>

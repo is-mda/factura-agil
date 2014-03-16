@@ -11,10 +11,11 @@ class InvoicesController extends AppController {
         $this->set('invoices', $this->Paginator->paginate('Invoice', array('Invoice.company_id' => $this->Workspace->get('id'))));
     }
 
-    public function view($id = null) {
+    public function view($id = null) {        
         if (!$this->Invoice->exists($id)) {
             throw new NotFoundException(__('Invalid invoice'));
         }
+        $this->layout = 'invoice';
         $options = array('conditions' => array('Invoice.' . $this->Invoice->primaryKey => $id));
         $this->set('invoice', $this->Invoice->find('first', $options));
     }
