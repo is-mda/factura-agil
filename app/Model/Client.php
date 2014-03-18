@@ -9,7 +9,17 @@ class Client extends AppModel {
             'notEmpty' => array(
                 'rule' => array('notEmpty'),
             )
-        )
+        ),
+        'fiscal_code' => array(
+            'notEmpty' => array(
+                'rule' => array('notEmpty'),
+            )
+        ),
+        'fiscal_code' => array(
+            'notEmpty' => array(
+                'rule' => array('notEmpty'),
+            )
+        ),
     );
     public $belongsTo = array('Company');
 

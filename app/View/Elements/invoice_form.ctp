@@ -33,7 +33,7 @@ $clientName = $this->request->data('Invoice.client_name');
                 echo $this->Form->input('company_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('company_fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('company_address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
-                echo $this->Form->input('company_country', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+                echo $this->Form->input('company_country', array('options' => $this->Country->get(), 'empty' => true, 'class' => 'form-control', 'div' => array('class' => 'form-group')));
                 ?>
             </div>
         </div>        
@@ -47,7 +47,7 @@ $clientName = $this->request->data('Invoice.client_name');
                 echo $this->Form->input('client_name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('client_fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
                 echo $this->Form->input('client_address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
-                echo $this->Form->input('client_country', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+                echo $this->Form->input('client_country', array('options' => $this->Country->get(), 'empty' => true, 'class' => 'form-control', 'div' => array('class' => 'form-group')));
                 ?>
             </div>
         </div>        

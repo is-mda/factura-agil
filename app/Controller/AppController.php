@@ -18,4 +18,8 @@ class AppController extends Controller {
         )
     );
     
+    public $helpers = array(
+        'Country'
+    );
+    
 }

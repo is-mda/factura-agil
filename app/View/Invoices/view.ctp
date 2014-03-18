@@ -13,7 +13,7 @@
                 <p>
                     <?= h($invoice['Invoice']['company_fiscal_code']); ?> <br>
                     <?= h($invoice['Invoice']['company_address']); ?> <br>
-                    <?= h($invoice['Invoice']['company_country']); ?> <br>
+                    <?= h($this->Country->get($invoice['Invoice']['company_country'])); ?> <br>
                 </p>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <p>
                     <?= h($invoice['Invoice']['client_fiscal_code']); ?> <br>
                     <?= h($invoice['Invoice']['client_address']); ?> <br>
-                    <?= h($invoice['Invoice']['client_country']); ?> <br>
+                    <?= h($this->Country->get($invoice['Invoice']['client_country'])); ?> <br>
                 </p>
             </div>
         </div>
@@ -36,7 +36,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <?= __('Invoice detail'); ?>
+        <?= __('Invoice details'); ?>
     </div>
     <table class="table table-bordered">
         <thead>
@@ -71,4 +71,41 @@
         <?= $this->Number->currency($invoice['Invoice']['tax_amount'], 'EUR'); ?> <br>
         <strong><?= $this->Number->currency($invoice['Invoice']['net_amount'], 'EUR'); ?></strong> <br>
     </div>
+</div>
+
+<div class="row">
+    <?php if (!empty($invoice['Company']['bank_account_number'])): ?>
+        <div class="col-xs-5">
+            <div class="panel panel-info">
+                <div class="panel-heading"><?= __('Bank details') ?></div>
+                <div class="panel-body">
+                    <strong><?= __('Bank name & Swift') ?></strong><br>
+                    <?= h($invoice['Company']['bank_name']); ?> [<?= h($invoice['Company']['swift']); ?>]<br>
+                    <strong><?= __('Account owner') ?></strong><br>
+                    <?= h($invoice['Company']['bank_account_owner']); ?><br>
+                    <strong><?= __('Iban') ?></strong><br>
+                    <?= h($invoice['Company']['iban']); ?><br>
+                    
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if (!empty($invoice['Company']['contact_email'])): ?>
+        <div class="col-xs-5 col-xs-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading"><?= __('Contact details') ?></div>
+                <div class="panel-body">
+                    <address>
+                        <strong><?= __('Person') ?></strong><br>
+                        <?= h($invoice['Company']['contact_person']); ?><br>
+                        <strong><?= __('Email') ?></strong><br>
+                        <?= $this->Html->link($invoice['Company']['contact_email'], "mailto:{$invoice['Company']['contact_email']}"); ?><br>
+                        <strong><?= __('Phone') ?></strong><br>
+                        <?= h($invoice['Company']['contact_phone']); ?>
+                    </address>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>

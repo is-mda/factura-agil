@@ -8,7 +8,7 @@
 		echo $this->Form->input('fiscal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('email', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('address', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
-		echo $this->Form->input('country', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('country', array('options' => $this->Country->get(), 'empty' => true, 'class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('phone', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('fax', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('postal_code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));

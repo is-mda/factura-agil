@@ -18,7 +18,7 @@
                     <td><?php echo h($company['Company']['name']); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['fiscal_code']); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['address']); ?>&nbsp;</td>
-                    <td><?php echo h($company['Company']['country']); ?>&nbsp;</td>
+                    <td><?php echo h($this->Country->get($company['Company']['country'])); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['created']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-star' . ((!empty($currentCompany) and $currentCompany['Company']['id'] == $company['Company']['id']) ? '': '-empty') . '"></span>', array('action' => 'select', $company['Company']['id']), array('escape' => false)); ?>

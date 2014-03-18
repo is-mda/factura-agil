@@ -17,7 +17,7 @@
                     <td><?php echo h($client['Client']['name']); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['fiscal_code']); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['email']); ?>&nbsp;</td>
-                    <td><?php echo h($client['Client']['country']); ?>&nbsp;</td>
+                    <td><?php echo h($this->Country->get($client['Client']['country'])); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['phone']); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['created']); ?>&nbsp;</td>
                     <td class="actions">
