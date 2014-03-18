@@ -23,7 +23,7 @@
                         <?php echo $this->Html->link($invoice['Client']['name'], array('controller' => 'clients', 'action' => 'edit', $invoice['Client']['id'])); ?>
                     </td>
                     <td><?php echo h($invoice['Invoice']['invoice_date']); ?>&nbsp;</td>
-                    <td><?php echo h($invoice['Invoice']['code']); ?>&nbsp;</td>
+                    <td><?php echo $this->Html->link($invoice['Invoice']['code'], array('action' => 'edit', $invoice['Invoice']['id'])); ?></td>
                     <td><?php echo h($invoice['Invoice']['gross_amount']); ?>&nbsp;</td>
                     <td><?php echo h($invoice['Invoice']['tax_amount']); ?>&nbsp;</td>
                     <td><?php echo h($invoice['Invoice']['net_amount']); ?>&nbsp;</td>

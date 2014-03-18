@@ -14,7 +14,7 @@
             </tr>
             <?php foreach ($clients as $client): ?>
                 <tr>
-                    <td><?php echo h($client['Client']['name']); ?>&nbsp;</td>
+                    <td><?php echo $this->Html->link($client['Client']['name'], array('action' => 'edit', $client['Client']['id'])); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['fiscal_code']); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['email']); ?>&nbsp;</td>
                     <td><?php echo h($this->Country->get($client['Client']['country'])); ?>&nbsp;</td>

@@ -15,7 +15,7 @@
             </tr>
             <?php foreach ($companies as $company): ?>
                 <tr>
-                    <td><?php echo h($company['Company']['name']); ?>&nbsp;</td>
+                    <td><?php echo $this->Html->link($company['Company']['name'], array('action' => 'edit', $company['Company']['id'])); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['fiscal_code']); ?>&nbsp;</td>
                     <td><?php echo h($company['Company']['address']); ?>&nbsp;</td>
                     <td><?php echo h($this->Country->get($company['Company']['country'])); ?>&nbsp;</td>

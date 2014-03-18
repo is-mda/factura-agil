@@ -74,15 +74,19 @@
 </div>
 
 <div class="row">
-    <?php if (!empty($invoice['Company']['bank_account_number'])): ?>
+    <?php if (!empty($invoice['Company']['iban'])): ?>
         <div class="col-xs-5">
             <div class="panel panel-info">
                 <div class="panel-heading"><?= __('Bank details') ?></div>
                 <div class="panel-body">
+                    <?php if(!empty($invoice['Company']['bank_name'])): ?>
                     <strong><?= __('Bank name & Swift') ?></strong><br>
                     <?= h($invoice['Company']['bank_name']); ?> [<?= h($invoice['Company']['swift']); ?>]<br>
+                    <?php endif; ?>
+                    <?php if(!empty($invoice['Company']['bank_account_owner'])): ?>
                     <strong><?= __('Account owner') ?></strong><br>
                     <?= h($invoice['Company']['bank_account_owner']); ?><br>
+                    <?php endif; ?>
                     <strong><?= __('Iban') ?></strong><br>
                     <?= h($invoice['Company']['iban']); ?><br>
                     
@@ -97,12 +101,16 @@
                 <div class="panel-heading"><?= __('Contact details') ?></div>
                 <div class="panel-body">
                     <address>
+                        <?php if(!empty($invoice['Company']['contact_person'])): ?>
                         <strong><?= __('Person') ?></strong><br>
                         <?= h($invoice['Company']['contact_person']); ?><br>
+                        <?php endif; ?>
                         <strong><?= __('Email') ?></strong><br>
                         <?= $this->Html->link($invoice['Company']['contact_email'], "mailto:{$invoice['Company']['contact_email']}"); ?><br>
+                        <?php if(!empty($invoice['Company']['contact_phone'])): ?>
                         <strong><?= __('Phone') ?></strong><br>
                         <?= h($invoice['Company']['contact_phone']); ?>
+                        <?php endif; ?>
                     </address>
                 </div>
             </div>
