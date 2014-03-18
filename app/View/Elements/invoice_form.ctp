@@ -4,7 +4,7 @@ $this->Html->script('app/invoice.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_lines.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
-$id = $this->request->data('Invoice.id');;
+$id = $this->request->data('Invoice.id');
 $companyName = $this->request->data('Invoice.company_name');
 $clientName = $this->request->data('Invoice.client_name');
 ?>

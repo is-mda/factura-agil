@@ -15,9 +15,10 @@ class InvoicesController extends AppController {
         if (!$this->Invoice->exists($id)) {
             throw new NotFoundException(__('Invalid invoice'));
         }
+        $invoice = $this->Invoice->find('first', array('conditions' => array('Invoice.' . $this->Invoice->primaryKey => $id)));
+        $this->set('title_for_layout', __('Invoice: ') . $invoice['Invoice']['code']);
         $this->layout = 'invoice';
-        $options = array('conditions' => array('Invoice.' . $this->Invoice->primaryKey => $id));
-        $this->set('invoice', $this->Invoice->find('first', $options));
+        $this->set('invoice', $invoice);
     }
 
     public function add($client = null) {
@@ -50,8 +51,8 @@ class InvoicesController extends AppController {
             throw new NotFoundException(__('Invalid invoice'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            $this->Invoice->deleteNonExistentLines($this->request->data);
             if ($this->Invoice->saveAssociated($this->request->data)) {
-                $this->Invoice->deleteNonExistentLines($this->request->data);
                 $this->Messaging->success(__('The invoice has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {

@@ -26,6 +26,6 @@ App.PanelCollapse = function() {
     var init = function() {
         $(_config.panelSelector).find(_config.headingSelector).click(_headingClickManager);
     };
-    App.addInitializer(init());
+    App.addInitializer(init);
 
 }();

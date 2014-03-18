@@ -24,9 +24,9 @@
                     </td>
                     <td><?php echo h($invoice['Invoice']['invoice_date']); ?>&nbsp;</td>
                     <td><?php echo $this->Html->link($invoice['Invoice']['code'], array('action' => 'edit', $invoice['Invoice']['id'])); ?></td>
-                    <td><?php echo h($invoice['Invoice']['gross_amount']); ?>&nbsp;</td>
-                    <td><?php echo h($invoice['Invoice']['tax_amount']); ?>&nbsp;</td>
-                    <td><?php echo h($invoice['Invoice']['net_amount']); ?>&nbsp;</td>
+                    <td><?= $this->Number->currency($invoice['Invoice']['gross_amount'], 'EUR'); ?>&nbsp;</td>
+                    <td><?= $this->Number->currency($invoice['Invoice']['tax_amount'], 'EUR'); ?>&nbsp;</td>
+                    <td><?= $this->Number->currency($invoice['Invoice']['net_amount'], 'EUR'); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $invoice['Invoice']['id']), array('escape' => false, 'class' => 'external')); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $invoice['Invoice']['id']), array('escape' => false)); ?>

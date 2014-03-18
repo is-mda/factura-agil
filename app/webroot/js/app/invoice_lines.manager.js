@@ -102,6 +102,6 @@ App.InvoiceLinesManager = function() {
         $(_config.tableSelector).on('change', 'input[data-evaluable=1]', _evaluateLine);
     };
 
-    App.addInitializer(init());
+    App.addInitializer(init);
 
 }();

@@ -14,10 +14,6 @@ var App = function() {
         $.each(_initializers, function(i, f) {
            f();
         });
-        $('a.external').click(function(evt) {
-           evt.preventDefault();
-           //window.open($(evt.target).closest('a').attr('href'));
-        });
     };
     
     Api.Model = {
@@ -45,3 +41,5 @@ var App = function() {
     return Api;
 
 }();
+
+$(App.run);
