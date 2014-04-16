@@ -7,32 +7,17 @@ class Invoice extends AppModel {
     public $belongsTo = array(
         'Company' => array(
             'className' => 'Company',
-            'foreignKey' => 'company_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
+            'foreignKey' => 'company_id'
         ),
         'Client' => array(
             'className' => 'Client',
-            'foreignKey' => 'client_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
+            'foreignKey' => 'client_id'
         )
     );
     public $hasMany = array(
         'InvoiceLine' => array(
             'className' => 'InvoiceLine',
-            'foreignKey' => 'invoice_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
+            'foreignKey' => 'invoice_id'
         )
     );
 

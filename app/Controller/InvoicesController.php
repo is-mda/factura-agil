@@ -62,9 +62,6 @@ class InvoicesController extends AppController {
             $options = array('conditions' => array('Invoice.' . $this->Invoice->primaryKey => $id));
             $this->request->data = $this->Invoice->find('first', $options);
         }
-        $companies = $this->Invoice->Company->find('list');
-        $clients = $this->Invoice->Client->find('list');
-        $this->set(compact('companies', 'clients'));
     }
 
     public function delete($id = null) {
