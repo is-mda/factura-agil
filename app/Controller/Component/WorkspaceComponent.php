@@ -21,6 +21,7 @@ class WorkspaceComponent extends Component {
         CakeEventManager::instance()->attach(array($this, 'onCompanyAfterDelete'), 'Model.Company.afterDelete');
         CakeEventManager::instance()->attach(array($this, 'onCompanyAfterCreate'), 'Model.Company.afterCreate');
         CakeEventManager::instance()->attach(array($this, 'onClientAfterCreate'), 'Model.Client.afterCreate');
+        CakeEventManager::instance()->attach(array($this, 'onProductAfterCreate'), 'Model.Product.afterCreate');
         CakeEventManager::instance()->attach(array($this, 'onUserLogout'), 'Controller.Users.logout');
     }
 
@@ -32,6 +33,10 @@ class WorkspaceComponent extends Component {
         )));
     }
 
+    public function onProductAfterCreate($event) {
+        $event->subject()->saveField('company_id', $this->get('id'));
+    }
+    
     public function onClientAfterCreate($event) {
         $event->subject()->saveField('company_id', $this->get('id'));
     }

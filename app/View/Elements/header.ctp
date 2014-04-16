@@ -23,6 +23,11 @@
                         echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('Clients'), array('controller' => 'clients', 'action' => 'index'), array('title' => __('clients management'), 'escape' => false));
                         ?>
                     </li>
+                    <li <?php echo $this->params['controller'] == 'products' ? 'class="active"' : '' ?>>
+                        <?php
+                        echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Products'), array('controller' => 'products', 'action' => 'index'), array('title' => __('products management'), 'escape' => false));
+                        ?>
+                    </li>
                 </ul>
                 <div class="navbar-right">
                     <p class="navbar-text">
@@ -35,8 +40,9 @@
                         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu">                            
                             <li><?php echo $this->Html->link(__('New invoice'), array('controller' => 'invoices', 'action' => 'add')); ?></li>
+                            <li><?php echo $this->Html->link(__('New product'), array('controller' => 'products', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('New client'), array('controller' => 'clients', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('New company'), array('controller' => 'companies', 'action' => 'add')); ?></li>
                         </ul>
