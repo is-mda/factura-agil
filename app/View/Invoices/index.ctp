@@ -17,13 +17,13 @@
             <?php foreach ($invoices as $invoice): ?>
                 <tr>
                     <td>
-                        <?php echo $this->Html->link($invoice['Company']['name'], array('controller' => 'companies', 'action' => 'edit', $invoice['Company']['id'])); ?>
+                        <?php echo $this->Html->link($invoice['Document']['company_name'], array('controller' => 'companies', 'action' => 'edit', $invoice['Document']['company_id'])); ?>
                     </td>
                     <td>
-                        <?php echo $this->Html->link($invoice['Client']['name'], array('controller' => 'clients', 'action' => 'edit', $invoice['Client']['id'])); ?>
+                        <?php echo $this->Html->link($invoice['Document']['client_name'], array('controller' => 'clients', 'action' => 'edit', $invoice['Document']['company_id'])); ?>
                     </td>
-                    <td><?php echo h($invoice['Invoice']['invoice_date']); ?>&nbsp;</td>
-                    <td><?php echo $this->Html->link($invoice['Invoice']['code'], array('action' => 'edit', $invoice['Invoice']['id'])); ?></td>
+                    <td><?php echo h($invoice['Document']['document_date']); ?>&nbsp;</td>
+                    <td><?php echo $this->Html->link($invoice['Document']['code'], array('action' => 'edit', $invoice['Invoice']['id'])); ?></td>
                     <td><?= $this->Number->currency($invoice['Invoice']['gross_amount'], 'EUR'); ?>&nbsp;</td>
                     <td><?= $this->Number->currency($invoice['Invoice']['tax_amount'], 'EUR'); ?>&nbsp;</td>
                     <td><?= $this->Number->currency($invoice['Invoice']['net_amount'], 'EUR'); ?>&nbsp;</td>

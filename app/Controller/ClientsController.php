@@ -23,11 +23,11 @@ class ClientsController extends AppController {
         }
     }
 
-    public function add_then_add_invoice() {
+    public function add_then_add_document($type) {
         if ($this->request->is('post')) {
             $this->Client->create();
             if ($this->Client->save($this->request->data)) {
-                return $this->redirect(array('controller' => 'invoices', 'action' => 'add', $this->Client->id));
+                return $this->redirect(array('controller' => $type, 'action' => 'add', $this->Client->id));
             } else {
                 $this->Messaging->error(__('The client could not be saved. Please, try again.'));
             }
