@@ -4,7 +4,7 @@
 
         <table class="table table-striped table-hover">
             <tr>
-                <th><?php echo $this->Paginator->sort('ean'); ?></th>
+                <th><?php echo $this->Paginator->sort('code'); ?></th>
                 <th><?php echo $this->Paginator->sort('name'); ?></th>
                 <th><?php echo $this->Paginator->sort('description'); ?></th>
                 <th><?php echo $this->Paginator->sort('price'); ?></th>
@@ -13,7 +13,7 @@
             </tr>
             <?php foreach ($products as $product): ?>
                 <tr>
-                    <td><?php echo h($product['Product']['ean']); ?>&nbsp;</td>
+                    <td><?php echo h($product['Product']['code']); ?>&nbsp;</td>
                     <td><?php echo $this->Html->link($product['Product']['name'], array('action' => 'edit', $product['Product']['id'])); ?>&nbsp;</td>
                     <td><?php echo h($product['Product']['description']); ?>&nbsp;</td>
                     <td><?= $this->Number->currency($product['Product']['price'], 'EUR'); ?>&nbsp;</td>

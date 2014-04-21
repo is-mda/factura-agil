@@ -6,7 +6,7 @@ class Product extends AppModel {
 
     public $displayField = 'name';
     public $validate = array(
-        'ean' => array(
+        'code' => array(
             'notEmpty' => array(
                 'rule' => array('notEmpty'),
             )

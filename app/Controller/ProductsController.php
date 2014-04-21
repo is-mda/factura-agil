@@ -11,14 +11,6 @@ class ProductsController extends AppController {
         $this->set('products', $this->Paginator->paginate('Product', array('Product.company_id' => $this->Workspace->get('id'))));
     }
 
-    public function view($id = null) {
-        if (!$this->Product->exists($id)) {
-            throw new NotFoundException(__('Invalid product'));
-        }
-        $options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
-        $this->set('product', $this->Product->find('first', $options));
-    }
-
     public function add() {
         if ($this->request->is('post')) {
             $this->Product->create();

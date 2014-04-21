@@ -4,7 +4,7 @@
 <?php echo $this->Form->create('Product', array('role' => 'form')); ?>
 	<?php
 		echo $this->Form->input('id', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
-		echo $this->Form->input('ean', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+		echo $this->Form->input('code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('name', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('description', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 		echo $this->Form->input('price', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
