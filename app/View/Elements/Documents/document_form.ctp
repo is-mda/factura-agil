@@ -1,14 +1,14 @@
 <?php 
 // JS engine
-$this->Html->script('app/invoice_lines.manager', array('block' => 'scriptBottom'));
-$this->Html->script('app/invoice_line.model', array('block' => 'scriptBottom'));
+$this->Html->script('app/document_items.manager', array('block' => 'scriptBottom'));
+$this->Html->script('app/document_item.model', array('block' => 'scriptBottom'));
 $companyName = $this->request->data('Document.company_name');
 $clientName = $this->request->data('Document.client_name');
 ?>
 
 <div class="form-inline pull-left invoice-code">
     <?php
-    echo $this->Form->hidden('id');
+    echo $this->Form->hidden('Document.id');
     echo $this->Form->input('Document.code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
     ?>   
 </div>

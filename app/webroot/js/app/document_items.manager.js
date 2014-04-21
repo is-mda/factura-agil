@@ -1,21 +1,24 @@
-App.InvoiceLinesManager = function() {
+App.DocumentItemsManager = function() {
 
     'use strict';
 
     var _nextLineNumber = 0;
 
     var _config = {
-        tableSelector: '#invoice-lines',
-        fieldNamePattern: 'data[{model}][{n}][{field}]',
+        tableSelector: '#document-items',
         addLineButtonSelector: '.add-line',
         removeLinesButtonSelector: '.remove-lines'
     };
     
-    var _replaceMetadata = function(field) {
-        return _config.fieldNamePattern
-                .replace('{n}', _getNextLineNumber())
-                .replace('{model}', field.split('.')[0])
-                .replace('{field}', field.split('.')[1]);
+    var _brackets = function(element) {
+        return '[' + element + ']';
+    };
+    
+    var _generateInputName = function(field) {
+        var fieldNameParts = field.split('.');
+        return 'data' + $.map(fieldNameParts, function(el, index) {
+            return ((index === fieldNameParts.length - 1) ? _brackets(_getNextLineNumber()) : '') + _brackets(el);
+        }).join('');
     };
 
     var _updateNextLineNumber = function() {
@@ -41,7 +44,7 @@ App.InvoiceLinesManager = function() {
 
     var _parseLine = function(newLine) {
         newLine.find('td').not('.check').find('input').each(function(i, input) {
-            $(input).attr('name', _replaceMetadata($(input).data('field'))).attr('id', '').val('');
+            $(input).attr('name', _generateInputName($(input).data('field'))).attr('id', '').val('');
         });
         return newLine;
     };
@@ -87,11 +90,11 @@ App.InvoiceLinesManager = function() {
     };
     
     var _lineChange = function() {
-        $(_config.tableSelector).trigger('invoice_lines:change', [App.InvoiceLineModel.evaluateAll(_getLines())]);
+        $(_config.tableSelector).trigger('document_items:change', [App.DocumentItemModel.evaluateAll(_getLines())]);
     };
     
     var _evaluateLine = function(evt) {
-        App.InvoiceLineModel.evaluate($(evt.target).closest('tr'));
+        App.DocumentItemModel.evaluate($(evt.target).closest('tr'));
         _lineChange();
     };
     

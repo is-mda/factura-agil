@@ -8,7 +8,7 @@ class DocumentItem extends AppModel {
         'Document'
     );
     public $virtualFields = array(
-        'amount' => 'DocumentItem.item_quantity * DocumentItem.item_price'
+        'amount' => 'DocumentItem.quantity * DocumentItem.price'
     );
 
 }

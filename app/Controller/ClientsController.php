@@ -23,16 +23,31 @@ class ClientsController extends AppController {
         }
     }
 
-    public function add_then_add_document($type) {
+    public function add_then_add_document($documentType) {
         if ($this->request->is('post')) {
             $this->Client->create();
             if ($this->Client->save($this->request->data)) {
-                return $this->redirect(array('controller' => $type, 'action' => 'add', $this->Client->id));
+                return $this->redirect(array('controller' => $documentType, 'action' => 'add', $this->Client->id));
             } else {
                 $this->Messaging->error(__('The client could not be saved. Please, try again.'));
             }
         }
         $this->render('add');
+    }
+    
+    public function select($documentType) {
+        if ($this->request->is('post')) return $this->redirect_to_document_add($documentType, $this->request->data('Document.client_id'));
+        $clients = $this->Client->find('list', array('conditions' => array('Client.company_id' => $this->Workspace->get('id'))));
+        if(empty($clients)) {
+            $this->Messaging->info(__('You must create at least one client to can add documents'));
+            return $this->redirect(array('action' => 'add_then_add_document', $documentType));
+        }
+        if(count($clients) == 1) return $this->redirect_to_document_add($documentType, key($clients));
+        $this->set(compact('clients'));
+    }
+    
+    private function redirect_to_document_add($documentType, $clientId) {
+        $this->redirect(array('controller' => $documentType, 'action' => 'add', $clientId));
     }
     
     public function edit($id = null) {

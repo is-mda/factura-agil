@@ -3,8 +3,8 @@ $documentItems = $this->request->data('Document.DocumentItem');
 $documentItemCount = empty($documentItems) ? 1 : count($documentItems);
 ?>
 <div class="panel panel-primary">
-    <div class="panel-heading"><?= __('Document lines') ?></div>
-    <table class="table table-striped table-hover" id="invoice-lines">
+    <div class="panel-heading"><?= __('Document items') ?></div>
+    <table class="table table-striped table-hover" id="document-items">
         <thead>
             <tr>
                 <th></th>

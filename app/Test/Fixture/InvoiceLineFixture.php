@@ -12,9 +12,9 @@ class InvoiceLineFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
-		'item_name' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 150, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-		'item_quantity' => array('type' => 'integer', 'null' => false, 'default' => null),
-		'item_price' => array('type' => 'float', 'null' => false, 'default' => null),
+		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 150, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'quantity' => array('type' => 'integer', 'null' => false, 'default' => null),
+		'price' => array('type' => 'float', 'null' => false, 'default' => null),
 		'invoice_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
@@ -30,9 +30,9 @@ class InvoiceLineFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'item_name' => 'Lorem ipsum dolor sit amet',
-			'item_quantity' => 1,
-			'item_price' => 1,
+			'name' => 'Lorem ipsum dolor sit amet',
+			'quantity' => 1,
+			'price' => 1,
 			'invoice_id' => 1
 		),
 	);

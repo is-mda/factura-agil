@@ -1,11 +1,11 @@
-App.InvoiceLineModel = function() {
+App.DocumentItemModel = function() {
 
     'use strict';
 
     var _fields = {
-        quantity: 'InvoiceLine.item_quantity',
-        price: 'InvoiceLine.item_price',
-        amount: 'InvoiceLine.amount'
+        quantity: 'Document.DocumentItem.quantity',
+        price: 'Document.DocumentItem.price',
+        amount: 'Document.DocumentItem.amount'
     };
 
     var Api = {};
@@ -60,7 +60,7 @@ App.InvoiceLineModel = function() {
         var grossAmount = 0;
         $(lines).each(function(i, line) {
             if(isNaN(grossAmount)) return;
-            var amount = App.InvoiceLineModel.getAmount(line);
+            var amount = App.DocumentItemModel.getAmount(line);
             if(isNaN(amount)) grossAmount = NaN;
             else grossAmount += amount;
         });

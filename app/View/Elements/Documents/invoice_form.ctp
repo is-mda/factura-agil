@@ -5,6 +5,8 @@ $this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
 ?>
 <?php echo $this->Form->create('Invoice', array('role' => 'form', 'id' => 'invoice')); ?>
 
+<?= $this->Form->hidden('id'); ?>
+
 <?= $this->element('Documents/document_form') ?>
 
 <div class="row">

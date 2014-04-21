@@ -3,16 +3,16 @@ App.InvoiceManager = function() {
     'use strict';
     
     var _config = {
-        linesSelector: '#invoice-lines'
+        linesSelector: '#document-items'
     };
     
-    var _onInvoiceLinesChange = function(evt, grossAmount) {
+    var _onDocumentItemsChange = function(evt, grossAmount) {
         App.InvoiceModel.update(grossAmount);
         App.CommonManager.parseCurrency();
     };
 
     var init = function() {
-        $(_config.linesSelector).on('invoice_lines:change', _onInvoiceLinesChange);
+        $(_config.linesSelector).on('document_items:change', _onDocumentItemsChange);
         App.CommonManager.parseCurrency();
     };
 

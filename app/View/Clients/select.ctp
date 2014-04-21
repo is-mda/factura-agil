@@ -1,6 +1,6 @@
-<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add Invoice') ?> <small><?= __('Select client') ?></small></h1>
+<h1 class="main-title"><span class="glyphicon glyphicon-plus-sign"></span> <?= __('Add Document') ?> <small><?= __('Select client') ?></small></h1>
 
-<?php echo $this->Form->create('Invoice', array('role' => 'form')); ?>
+<?php echo $this->Form->create('Document', array('role' => 'form')); ?>
 <?php
 echo $this->Form->input('client_id', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
 ?>
