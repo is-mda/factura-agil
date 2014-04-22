@@ -7,7 +7,9 @@ App.BarcodeManager = function() {
     };
     
     var _addProduct = function(product) {
-        
+        var line = App.DocumentItemsManager.searchLine(product.code);
+        if(line) App.DocumentItemsManager.addOneToLineQuantity(line);
+        else App.DocumentItemsManager.addLine(product);
     };
     
     var onChange = function(evt) {

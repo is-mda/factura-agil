@@ -23,6 +23,10 @@ App.DocumentItemModel = function() {
     var _setCode = function(code) {
         App.Model.setFieldValue(_fields.code, code);
     };
+    
+    var _getName = function() {
+        return App.Model.getFieldValue(_fields.name);
+    };
 
     var _setName = function(name) {
         App.Model.setFieldValue(_fields.name, name);
@@ -81,6 +85,11 @@ App.DocumentItemModel = function() {
     Api.getAmount = function(line) {
         _setElement(line);
         return _getAmount();
+    };
+
+    Api.isEmpty = function(line) {
+        _setElement(line);
+        return !_getCode() && !_getName();
     };
 
     Api.addOneToQuantity = function(line) {

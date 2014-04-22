@@ -3,7 +3,8 @@ App.InvoiceManager = function() {
     'use strict';
     
     var _config = {
-        linesSelector: '#document-items'
+        linesSelector: '#document-items',
+        barcodeInput: '#barcode'
     };
     
     var _onDocumentItemsChange = function(evt, grossAmount) {
@@ -14,6 +15,7 @@ App.InvoiceManager = function() {
     var init = function() {
         $(_config.linesSelector).on('document_items:change', _onDocumentItemsChange);
         App.CommonManager.parseCurrency();
+        $(_config.barcodeInput).focus();
     };
 
     App.addInitializer(init);
