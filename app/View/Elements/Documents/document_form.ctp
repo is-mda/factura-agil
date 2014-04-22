@@ -1,7 +1,10 @@
 <?php 
 // JS engine
-$this->Html->script('app/document_items.manager', array('block' => 'scriptBottom'));
+$this->Html->script('app/barcode.manager', array('block' => 'scriptBottom'));
+$this->Html->scriptBlock("var Data = {products: {$products}};", array('block' => 'scriptBottom'));
+$this->Html->script('app/products.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/document_item.model', array('block' => 'scriptBottom'));
+$this->Html->script('app/document_items.manager', array('block' => 'scriptBottom'));
 $companyName = $this->request->data('Document.company_name');
 $clientName = $this->request->data('Document.client_name');
 ?>

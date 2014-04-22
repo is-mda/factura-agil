@@ -81,3 +81,13 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.barcode-wrapper.well {
+    margin-bottom: 5px;
+}
+
+.barcode-wrapper .glyphicon {
+    margin-right: 5px;
+    font-size: 16px;
+    vertical-align: middle;
+}

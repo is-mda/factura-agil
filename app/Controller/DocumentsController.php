@@ -20,6 +20,12 @@ abstract class DocumentsController extends AppController {
         return Inflector::humanize(Inflector::underscore($this->getModelName()));
     }
     
+    protected function setProductsJsonData() {
+        $this->loadModel('Product');
+        $this->Product->recursive = -1;
+        $this->set('products', json_encode($this->Product->findAllByCompanyId($this->Workspace->get('id'))));
+    }
+    
     public function index() {
         $this->getModel()->recursive = 0;
         $this->set(
@@ -48,8 +54,9 @@ abstract class DocumentsController extends AppController {
                 $this->Messaging->error(__('The document could not be saved. Please, try again.'));
             }
         }
-        if(empty($client)) return $this->redirect(array('controller' => 'clients', 'action' => 'select', Inflector::underscore($this->getModelName())));
+        if(empty($client)) return $this->redirect(array('controller' => 'clients', 'action' => 'select', Inflector::underscore($this->name)));
         $this->request->data = $this->getDocument()->prepareData($client, $this->Workspace->get('id'));
+        $this->setProductsJsonData();
     }
     
     public function edit($id = null) {
@@ -68,6 +75,7 @@ abstract class DocumentsController extends AppController {
             $options = array('conditions' => array($this->getModelName() . '.' . $this->getModel()->primaryKey => $id));
             $this->request->data = $this->getModel()->find('first', $options);
         }
+        $this->setProductsJsonData();
     }
 
     public function delete($id = null) {

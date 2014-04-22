@@ -4,6 +4,8 @@ App.DocumentItemsManager = function() {
 
     var _nextLineNumber = 0;
 
+    var Api = {};
+
     var _config = {
         tableSelector: '#document-items',
         addLineButtonSelector: '.add-line',
@@ -51,6 +53,7 @@ App.DocumentItemsManager = function() {
 
     var _appendLine = function(newLine) {
         $(_config.tableSelector).find('tbody').append(newLine);
+        return newLine;
     };
 
     var _getSelectedLines = function() {
@@ -78,17 +81,6 @@ App.DocumentItemsManager = function() {
         else $(_config.removeLinesButtonSelector).addClass('disabled');
     };
 
-    var addLine = function(evt) {
-        evt.preventDefault();
-        _updateNextLineNumber();
-        _appendLine(_parseLine(_cloneLine()));
-    };
-
-    var removeSelectedLines = function(evt) {
-        evt.preventDefault();
-        _removeSelectedLines();
-    };
-    
     var _lineChange = function() {
         $(_config.tableSelector).trigger('document_items:change', [App.DocumentItemModel.evaluateAll(_getLines())]);
     };
@@ -98,13 +90,47 @@ App.DocumentItemsManager = function() {
         _lineChange();
     };
     
+    var _addLine = function() {
+        _updateNextLineNumber();
+        return _appendLine(_parseLine(_cloneLine()));
+    };
+    
+    var onAddLine = function(evt) {
+        evt.preventDefault();
+        _addLine();
+    };
+
+    var removeSelectedLines = function(evt) {
+        evt.preventDefault();
+        _removeSelectedLines();
+    };
+    
+    Api.addLine = function(data) {
+        /**
+         * @todo: Search for empty lines first
+         */
+        App.DocumentItemModel.setData(_addLine(), data);
+    };
+    
+    Api.addOneToLineQuantity = function(line) {
+        App.DocumentItemModel.addOneToQuantity(line);
+    };
+    
+    Api.searchLine = function(code) {
+        $.grep(_getLines(), function(line) {
+            return App.DocumentItemModel.getCode(line) == code;
+        }).first();
+    };
+    
     var init = function() {
-        $(_config.addLineButtonSelector).click(addLine);
+        $(_config.addLineButtonSelector).click(onAddLine);
         $(_config.removeLinesButtonSelector).click(removeSelectedLines);
         $(_config.tableSelector).on('click', 'input[type=checkbox]', _checkRemoveButtonStatus);
         $(_config.tableSelector).on('change', 'input[data-evaluable=1]', _evaluateLine);
     };
 
     App.addInitializer(init);
+    
+    return Api;
 
 }();
