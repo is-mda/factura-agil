@@ -17,7 +17,7 @@ class CompanyFixture extends CakeTestFixture {
     );
     public $records = array(
         array(
-            'id' => '3',
+            'id' => 1,
             'name' => 'Apple, Inc',
             'fiscal_code' => '466743AA',
             'address' => 'Main Street, 28. New York',
@@ -26,7 +26,7 @@ class CompanyFixture extends CakeTestFixture {
             'modified' => '2014-03-15 11:39:36'
         ),
         array(
-            'id' => '4',
+            'id' => 2,
             'name' => 'West Fargo, CIA',
             'fiscal_code' => '77466uuej',
             'address' => 'Oxford Street, 78',
@@ -35,7 +35,7 @@ class CompanyFixture extends CakeTestFixture {
             'modified' => '2014-03-15 11:44:20'
         ),
         array(
-            'id' => '5',
+            'id' => 3,
             'name' => 'Fake company, CIA',
             'fiscal_code' => '8877YY3YUU3',
             'address' => 'C/ Plaza de la Feria, 42a P7',

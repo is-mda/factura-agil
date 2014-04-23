@@ -24,7 +24,6 @@ class CompanyTest extends CakeTestCase {
 
     public function tearDown() {
         unset($this->Company);
-
         parent::tearDown();
     }
 

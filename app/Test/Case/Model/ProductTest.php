@@ -1,40 +1,30 @@
 <?php
+
 App::uses('Product', 'Model');
 
-/**
- * Product Test Case
- *
- */
 class ProductTest extends CakeTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.product'
-	);
+    public $fixtures = array(
+        'app.product'
+    );
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Product = ClassRegistry::init('Product');
-	}
+    public function setUp() {
+        parent::setUp();
+        $this->Product = ClassRegistry::init('Product');
+    }
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Product);
+    public function testFindCount() {
+        $this->assertEqual($this->Product->find('count', array('recursive' => 0)), 1);
+    }
 
-		parent::tearDown();
-	}
+    public function testFindFirst() {
+        $product = $this->Product->find('first', array('recursive' => 0));
+        $this->assertEqual($product['Product']['name'], 'iPod shuffle 2Gb');
+    }
+
+    public function tearDown() {
+        unset($this->Product);
+        parent::tearDown();
+    }
 
 }

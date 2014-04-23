@@ -21,7 +21,7 @@ abstract class DataReader {
         $this->$model = ClassRegistry::init($model);
     }
     
-    protected function extractFields($data, $fields, $prefix) {
+    protected function extractFields($data, $fields, $prefix = '') {
         $result = array();
         foreach ($fields as $field) {
             $result[$prefix . $field] = $data[$field];

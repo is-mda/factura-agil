@@ -8,7 +8,7 @@ class TaxDataReader extends ClientDataReader {
     
     protected function read() {
         $data = $this->getClient();
-        return $this->extractFields($data['Client'], array('tax_rate'), 'client_');
+        return $this->extractFields($data['Client'], array('tax_rate'));
     }
 
     

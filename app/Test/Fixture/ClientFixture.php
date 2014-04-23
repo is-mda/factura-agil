@@ -35,7 +35,7 @@ class ClientFixture extends CakeTestFixture {
             'postal_code' => null,
             'iban' => '',
             'tax_rate' => '12',
-            'company_id' => '3',
+            'company_id' => 1,
             'created' => '2014-03-15 11:47:53',
             'modified' => '2014-03-15 11:47:53'
         ),
@@ -51,7 +51,7 @@ class ClientFixture extends CakeTestFixture {
             'postal_code' => null,
             'iban' => '',
             'tax_rate' => '10',
-            'company_id' => '4',
+            'company_id' => 2,
             'created' => '2014-03-15 12:42:07',
             'modified' => '2014-03-15 12:42:07'
         ),
@@ -67,7 +67,7 @@ class ClientFixture extends CakeTestFixture {
             'postal_code' => null,
             'iban' => '',
             'tax_rate' => '11',
-            'company_id' => '4',
+            'company_id' => 2,
             'created' => '2014-03-15 12:47:43',
             'modified' => '2014-03-15 12:47:43'
         ),

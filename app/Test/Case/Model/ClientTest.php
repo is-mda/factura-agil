@@ -5,7 +5,8 @@ App::uses('Client', 'Model');
 class ClientTest extends CakeTestCase {
 
     public $fixtures = array(
-        'app.client'
+        'app.client',
+        'app.company'
     );
 
     public function setUp() {
@@ -24,7 +25,6 @@ class ClientTest extends CakeTestCase {
     
     public function tearDown() {
         unset($this->Client);
-
         parent::tearDown();
     }
 
