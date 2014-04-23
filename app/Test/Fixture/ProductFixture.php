@@ -19,14 +19,14 @@ class ProductFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'code' => 'Lorem ipsum',
-			'name' => 'Lorem ipsum dolor sit amet',
-			'description' => 'Lorem ipsum dolor sit amet',
-			'price' => 1,
-			'company_id' => 1,
+			'code' => '123456789012',
+			'name' => 'iPod shuffle 2Gb',
+			'description' => 'iPod shuffle 2Gb capacity',
+			'price' => 38,
+			'company_id' => 3,
 			'created' => '2014-04-16 14:26:19',
 			'modified' => '2014-04-16 14:26:19'
-		),
+		)
 	);
 
 }

@@ -5,10 +5,7 @@ App::uses('Client', 'Model');
 class ClientTest extends CakeTestCase {
 
     public $fixtures = array(
-        'app.client',
-        'app.company',
-        'app.user',
-        'app.companies_user'
+        'app.client'
     );
 
     public function setUp() {

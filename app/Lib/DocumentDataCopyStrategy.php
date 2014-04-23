@@ -6,15 +6,19 @@ abstract class DocumentDataCopyStrategy {
     
     protected $data = array();
     
-    public function setParams($params) {
+    public function __construct($params = array()) {
         $this->params = $params;
-    }
+    }    
     
     protected function appendData(DataReader $dataReader) {
-        
-        //$this->data = array_merge($this->data);
+        $this->data = Hash::merge($this->data, $dataReader->getData());
     }
     
-    abstract public function copy();
+    public function getData() {
+        $this->copy();
+        return Hash::expand($this->data);
+    }
+    
+    abstract protected function copy();
     
 }

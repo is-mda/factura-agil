@@ -1,11 +1,12 @@
 <?php
 
-App::uses('AppModel', 'Model');
+App::uses('DocumentType', 'Model');
+App::uses('InvoiceDataCopyStrategy', 'Lib');
 
-class Invoice extends AppModel {
-
-    public $belongsTo = array(
-        'Document'
-    );
+class Invoice extends DocumentType {
+    
+    protected function getCopyStrategy($params) {
+        return new InvoiceDataCopyStrategy($params);
+    }
     
 }

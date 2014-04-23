@@ -55,7 +55,10 @@ abstract class DocumentsController extends AppController {
             }
         }
         if(empty($client)) return $this->redirect(array('controller' => 'clients', 'action' => 'select', Inflector::underscore($this->name)));
-        $this->request->data = $this->getDocument()->prepareData($client, $this->Workspace->get('id'));
+        $this->request->data = $this->getModel()->prepareData(array(
+            'client_id' => $client, 
+            'company_id' => $this->Workspace->get('id')
+        ));
         $this->setProductsJsonData();
     }
     

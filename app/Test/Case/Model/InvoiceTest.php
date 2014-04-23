@@ -7,7 +7,7 @@ class InvoiceTest extends CakeTestCase {
     public $fixtures = array(
         'app.invoice',
         'app.company',
-        'app.client',
+        'app.client'
     );
 
     public function setUp() {
