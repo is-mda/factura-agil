@@ -7,14 +7,14 @@ $documentItemCount = empty($documentItems) ? 1 : count($documentItems);
     <input id="barcode" class="form-control">
 </div>
 <div class="clearfix"></div>
-<div class="panel panel-primary">
+<div class="panel panel-<?= $panelType; ?>">
     <div class="panel-heading"><?= __('Document items') ?></div>
     <table class="table table-striped table-hover" id="document-items">
         <thead>
             <tr>
                 <th></th>
-                <th><?php echo __('Item code'); ?></th>
-                <th><?php echo __('Item name'); ?></th>
+                <th><?php echo __('Code'); ?></th>
+                <th><?php echo __('Name'); ?></th>
                 <th><?php echo __('Price'); ?></th>
                 <th><?php echo __('Quantity'); ?></th>
                 <th><?php echo __('Amount'); ?></th>

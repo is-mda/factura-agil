@@ -7,7 +7,7 @@ $this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
 
 <?= $this->Form->hidden('id'); ?>
 
-<?= $this->element('Documents/document_form') ?>
+<?= $this->element('Documents/document_form', array('panelType' => 'primary')) ?>
 
 <div class="row">
     <div class="col-md-2">

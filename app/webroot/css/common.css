@@ -31,24 +31,24 @@ td.actions span.glyphicon {
     margin: 0;
 }
 
-#invoice-lines .check {
-    padding: 0;
+#document-items .check {
+    padding: 0 0 0 5px;
     text-align: right;
 }
 
-#invoice-lines .check input {
-    margin-top: 15px;
+#document-items .check input {
+    margin-top: 18px;
 }
 
-.invoice-code, .invoice-date {
+.document-code, .document-date {
     padding-bottom: 15px;    
 }
 
-.invoice-code label, .invoice-date label {
+.document-code label, .document-date label {
     margin-right: 5px;
 }
 
-.invoice-code input, .invoice-date select {    
+.document-code input, .document-date select {    
     margin-left: 5px;
 }
 

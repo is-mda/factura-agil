@@ -1,52 +1,59 @@
+<div class="text-right">
+    <h1 class="main-title"><?= __($documentName) ?>
+        <small>#<?= h($document['Document']['code']); ?></small></h1>
+</div>
+
 <div class="row">
     <div class="col-xs-5">
-        <div class="panel panel-primary">
+        <div class="panel panel-<?= $panelType; ?>">
             <div class="panel-heading">
-                From: <?= $this->Html->tag('strong', $invoice['Invoice']['company_name']); ?>
+                From: <?= $this->Html->tag('strong', $document['Document']['company_name']); ?>
             </div>
             <div class="panel-body">
                 <p>
-                    <?= h($invoice['Invoice']['company_fiscal_code']); ?> <br>
-                    <?= h($invoice['Invoice']['company_address']); ?> <br>
-                    <?= h($this->Country->get($invoice['Invoice']['company_country'])); ?> <br>
+                    <?= h($document['Document']['company_fiscal_code']); ?> <br>
+                    <?= h($document['Document']['company_address']); ?> <br>
+                    <?= h($this->Country->get($document['Document']['company_country'])); ?> <br>
                 </p>
             </div>
         </div>
     </div>
     <div class="col-xs-5 col-xs-offset-2 text-right">
-        <div class="panel panel-primary">
+        <div class="panel panel-<?= $panelType; ?>">
             <div class="panel-heading">
-                To: <?= $this->Html->tag('strong', $invoice['Invoice']['client_name']); ?>
+                To: <?= $this->Html->tag('strong', $document['Document']['client_name']); ?>
             </div>
             <div class="panel-body">
                 <p>
-                    <?= h($invoice['Invoice']['client_fiscal_code']); ?> <br>
-                    <?= h($invoice['Invoice']['client_address']); ?> <br>
-                    <?= h($this->Country->get($invoice['Invoice']['client_country'])); ?> <br>
+                    <?= h($document['Document']['client_fiscal_code']); ?> <br>
+                    <?= h($document['Document']['client_address']); ?> <br>
+                    <?= h($this->Country->get($document['Document']['client_country'])); ?> <br>
                 </p>
             </div>
         </div>
     </div>
 </div> <!-- / end client details section -->
 
-<div class="panel panel-primary">
+<div class="panel panel-<?= $panelType; ?>">
     <div class="panel-heading">
-        <?= __('Invoice details'); ?>
+        <?= __('Document details'); ?>
     </div>
     <table class="table table-bordered">
         <thead>
-        <th><?= __('Item Name'); ?></th>
-        <th><?= __('Item Quantity'); ?></th>
-        <th><?= __('Item Price'); ?></th>
+        <th><?= __('Code'); ?></th>
+        <th><?= __('Name'); ?></th>
+        <th><?= __('Quantity'); ?></th>
+        <th><?= __('Price'); ?></th>
         <th><?= __('Amount'); ?></th>
         </thead>
         <tbody>
-            <?php foreach ($invoice['InvoiceLine'] as $invoiceLine): ?>
+            <?php foreach ($document['Document']['DocumentItem'] as $documentItem): ?>
                 <tr>
-                    <td><?= $invoiceLine['item_name']; ?></td>
-                    <td class="text-right"><?= $invoiceLine['item_quantity']; ?></td>
-                    <td class="text-right"><?= $this->Number->currency($invoiceLine['item_price'], 'EUR'); ?></td>
-                    <td class="text-right"><?= $this->Number->currency($invoiceLine['amount'], 'EUR'); ?></td>
+                    <td><?= $documentItem['code']; ?></td>
+                    <td><?= $documentItem['name']; ?></td>
+                    <td class="text-right"><?= $documentItem['quantity']; ?></td>
+                    <td class="text-right"><?= $this->Number->currency($documentItem['price'], 'EUR'); ?></td>
+                    <td class="text-right"><?= $this->Number->currency($documentItem['amount'], 'EUR'); ?></td>
                 </tr>
             <?php endforeach; ?>    
         </tbody>

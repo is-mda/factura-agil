@@ -9,14 +9,14 @@ $companyName = $this->request->data('Document.company_name');
 $clientName = $this->request->data('Document.client_name');
 ?>
 
-<div class="form-inline pull-left invoice-code">
+<div class="form-inline pull-left document-code">
     <?php
     echo $this->Form->hidden('Document.id');
     echo $this->Form->input('Document.code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
     ?>   
 </div>
 
-<div class="form-inline pull-right invoice-date">
+<div class="form-inline pull-right document-date">
     <?php
     echo $this->Form->input('Document.document_date', array('class' => 'form-control', 'separator' => null, 'div' => array('class' => 'form-group')));
     ?>   
@@ -24,7 +24,7 @@ $clientName = $this->request->data('Document.client_name');
 
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-primary panel-collapse">
+        <div class="panel panel-<?= $panelType; ?> panel-collapse">
             <div class="panel-heading"><?= __('Company') ?><?php if(!empty($companyName)) echo ': ' . $this->Html->tag('strong', $companyName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
@@ -38,7 +38,7 @@ $clientName = $this->request->data('Document.client_name');
         </div>        
     </div>
     <div class="col-md-6">
-        <div class="panel panel-primary panel-collapse">
+        <div class="panel panel-<?= $panelType; ?> panel-collapse">
             <div class="panel-heading"><?= __('Client') ?><?php if(!empty($clientName)) echo ': ' . $this->Html->tag('strong', $clientName); ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></div>
             <div class="panel-body">
                 <?php
@@ -53,7 +53,7 @@ $clientName = $this->request->data('Document.client_name');
     </div>
 </div>
 
-<?= $this->element('Documents/document_items_form') ?>
+<?= $this->element('Documents/document_items_form', compact('panelType')) ?>
 
 <div class="pull-right add-line-action">
     <button class="btn btn-danger btn-sm disabled remove-lines"><span class="glyphicon glyphicon-remove-circle"></span> <?= __('Remove lines') ?></button>
