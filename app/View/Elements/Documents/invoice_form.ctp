@@ -1,8 +1,4 @@
-<?php 
-// JS engine
-$this->Html->script('app/invoice.manager', array('block' => 'scriptBottom'));
-$this->Html->script('app/invoice.model', array('block' => 'scriptBottom'));
-?>
+<?php $this->Html->script('app/invoice.model', array('block' => 'scriptBottom')); ?>
 <?php echo $this->Form->create('Invoice', array('role' => 'form', 'id' => 'invoice')); ?>
 
 <?= $this->Form->hidden('id'); ?>

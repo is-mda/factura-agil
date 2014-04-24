@@ -48,6 +48,7 @@ App.DocumentItemsManager = function() {
         newLine.find('td').not('.check').find('input').each(function(i, input) {
             $(input).attr('name', _generateInputName($(input).data('field'))).attr('id', '').val('');
         });
+        newLine.find('input[data-no-clone=1]').remove();
         return newLine;
     };
 

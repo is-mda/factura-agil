@@ -20,7 +20,7 @@ App.BarcodeManager = function() {
     };
 
     var init = function() {
-        $(_config.barcodeInput).change(onChange);
+        $(_config.barcodeInput).change(onChange).focus();
     };
 
     App.addInitializer(init);

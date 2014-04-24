@@ -1,19 +1,13 @@
-<?php $this->Html->script('app/order.model', array('block' => 'scriptBottom')); ?>
-<?php echo $this->Form->create('Order', array('role' => 'form', 'id' => 'order')); ?>
+<?php echo $this->Form->create('DeliveryNote', array('role' => 'form', 'id' => 'delivery_note')); ?>
 
 <?= $this->Form->hidden('id'); ?>
 
 <?= $this->element('Documents/document_form', array('panelType' => 'primary')) ?>
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-6 form-inline date delivery-note-date">
         <?php
-        echo $this->Form->input('gross_amount', array('class' => 'form-control currency', 'data-field' => 'Order.gross_amount', 'readonly', 'type' => 'text', 'div' => array('class' => 'form-group')));
-        ?>
-    </div>
-    <div class="col-md-6 form-inline date">
-        <?php
-        echo $this->Form->input('estimated_delivery_date', array('class' => 'form-control', 'separator' => null, 'div' => array('class' => 'form-group')));
+        echo $this->Form->input('delivery_date', array('class' => 'form-control', 'separator' => null, 'div' => array('class' => 'form-group')));
         ?>   
     </div>    
 </div>

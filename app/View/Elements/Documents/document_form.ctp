@@ -5,6 +5,8 @@ $this->Html->scriptBlock("var Data = {products: {$products}};", array('block' =>
 $this->Html->script('app/products.manager', array('block' => 'scriptBottom'));
 $this->Html->script('app/document_item.model', array('block' => 'scriptBottom'));
 $this->Html->script('app/document_items.manager', array('block' => 'scriptBottom'));
+$this->Html->script('app/document.manager', array('block' => 'scriptBottom'));
+
 $companyName = $this->request->data('Document.company_name');
 $clientName = $this->request->data('Document.client_name');
 ?>

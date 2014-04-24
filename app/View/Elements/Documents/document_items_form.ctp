@@ -23,7 +23,7 @@ $documentItemCount = empty($documentItems) ? 1 : count($documentItems);
         <tbody>
             <?php for ($i = 0; $i < $documentItemCount; $i++): ?>
                 <tr>
-                    <td class="check"><input type="checkbox"><?php if($this->request->data("Document.DocumentItem.$i.id")) echo $this->Form->hidden("Document.DocumentItem.$i.id"); ?></td>
+                    <td class="check"><input type="checkbox"><?php if($this->request->data("Document.DocumentItem.$i.id")) echo $this->Form->hidden("Document.DocumentItem.$i.id", array('data-no-clone' => 1)); ?></td>
                     <td><?= $this->Form->input("Document.DocumentItem.$i.code", array('class' => 'form-control', 'readonly', 'data-field' => 'Document.DocumentItem.code', 'div' => null, 'label' => false)) ?></td>
                     <td class="col-md-5"><?= $this->Form->input("Document.DocumentItem.$i.name", array('class' => 'form-control', 'data-field' => 'Document.DocumentItem.name', 'div' => null, 'label' => false)) ?></td>
                     <td class="col-md-2"><?= $this->Form->input("Document.DocumentItem.$i.price", array('class' => 'form-control currency', 'type' => 'text', 'data-evaluable' => '1', 'data-field' => 'Document.DocumentItem.price', 'div' => null, 'label' => false)) ?></td>

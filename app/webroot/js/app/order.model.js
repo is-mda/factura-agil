@@ -29,6 +29,12 @@ App.OrderModel = function() {
         isNaN(grossAmount) ? _emptyValues() : _update(grossAmount);
     };
     
+    var init = function() {
+        App.DocumentModel = App.OrderModel;
+    };
+
+    App.addInitializer(init);    
+    
     return Api;
     
 }();

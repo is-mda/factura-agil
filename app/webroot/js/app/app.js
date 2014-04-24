@@ -38,6 +38,8 @@ var App = function() {
         }
     };
 
+    Api.DocumentModel = null;
+
     return Api;
 
 }();

@@ -48,7 +48,7 @@ td.actions span.glyphicon {
     margin-right: 5px;
 }
 
-.order-date label {
+.date label {
     display: block;
     margin-bottom: 5px;
 }
@@ -57,8 +57,12 @@ td.actions span.glyphicon {
     margin-left: 5px;
 }
 
-.order-date select {
+.date select {
     margin-right: 5px;
+}
+
+.delivery-note-date {
+    padding-bottom: 15px;
 }
 
 .add-line-action {
