@@ -59,3 +59,6 @@
         </tbody>
     </table>
 </div>
+<?php 
+if(!empty($this->passedArgs['print'])) $this->Html->script('app/document.print.manager', array('block' => 'scriptBottom'));
+?>

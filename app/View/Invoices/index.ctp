@@ -29,6 +29,7 @@
                     <td><?= $this->Number->currency($invoice['Invoice']['net_amount'], 'EUR'); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $invoice['Invoice']['id']), array('escape' => false, 'class' => 'external')); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-print"></span>', array('action' => 'view', $invoice['Invoice']['id'], 'print' => 1), array('escape' => false, 'class' => 'external')); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $invoice['Invoice']['id']), array('escape' => false)); ?>
                         <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $invoice['Invoice']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $invoice['Invoice']['id'])); ?>
                     </td>

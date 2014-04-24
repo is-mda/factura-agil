@@ -27,6 +27,7 @@
                     <td><?php echo h($order['Order']['estimated_delivery_date']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $order['Order']['id']), array('escape' => false, 'class' => 'external')); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-print"></span>', array('action' => 'view', $order['Order']['id'], 'print' => 1), array('escape' => false, 'class' => 'external')); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $order['Order']['id']), array('escape' => false)); ?>
                         <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $order['Order']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $order['Order']['id'])); ?>
                     </td>

@@ -25,6 +25,7 @@
                     <td><?php echo h($deliveryNote['DeliveryNote']['delivery_date']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $deliveryNote['DeliveryNote']['id']), array('escape' => false, 'class' => 'external')); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-print"></span>', array('action' => 'view', $deliveryNote['DeliveryNote']['id'], 'print' => 1), array('escape' => false, 'class' => 'external')); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $deliveryNote['DeliveryNote']['id']), array('escape' => false)); ?>
                         <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $deliveryNote['DeliveryNote']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $deliveryNote['DeliveryNote']['id'])); ?>
                     </td>

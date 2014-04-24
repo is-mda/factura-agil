@@ -21,5 +21,9 @@
             <div class="clearfix"></div>
         </div>    
 
+        <?php echo $this->Html->script(array('jquery')); ?>
+        <?php echo $this->Html->script(array('app/app')); ?>
+        <?php echo $this->fetch('scriptBottom'); ?>        
+
     </body>
 </html>
