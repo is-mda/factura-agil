@@ -14,7 +14,7 @@ class ClientsController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Client->create();
-            if ($this->Client->save($this->request->data)) {
+            if ($this->Client->saveAssociated($this->request->data)) {
                 $this->Messaging->success(__('The client has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {
@@ -26,7 +26,7 @@ class ClientsController extends AppController {
     public function add_then_add_document($documentType) {
         if ($this->request->is('post')) {
             $this->Client->create();
-            if ($this->Client->save($this->request->data)) {
+            if ($this->Client->saveAssociated($this->request->data)) {
                 return $this->redirect(array('controller' => $documentType, 'action' => 'add', $this->Client->id));
             } else {
                 $this->Messaging->error(__('The client could not be saved. Please, try again.'));
@@ -55,7 +55,7 @@ class ClientsController extends AppController {
             throw new NotFoundException(__('Invalid client'));
         }
         if ($this->request->is(array('post', 'put'))) {
-            if ($this->Client->save($this->request->data)) {
+            if ($this->Client->saveAssociated($this->request->data)) {
                 $this->Messaging->success(__('The client has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {

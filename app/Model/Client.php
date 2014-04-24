@@ -22,6 +22,10 @@ class Client extends AppModel {
         ),
     );
     public $belongsTo = array('Company');
+    public $hasOne = array(
+        'DeliveryAddress' => array(
+            'depedent' => true
+    ));
 
     public function afterSave($created, $options = array()) {
         if ($created) $this->getEventManager()->dispatch(new CakeEvent('Model.Client.afterCreate', $this));
