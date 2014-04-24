@@ -8,14 +8,19 @@
         <?php if (AuthComponent::user('id')): ?>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">                
+                    <li <?php echo $this->params['controller'] == 'orders' ? 'class="active"' : '' ?>>
+                        <?php
+                        echo $this->Html->link('<span class="glyphicon glyphicon-inbox"></span> ' . __('Orders'), array('controller' => 'orders', 'action' => 'index'), array('title' => __('orders management'), 'escape' => false));
+                        ?>
+                    </li>
                     <li <?php echo $this->params['controller'] == 'invoices' ? 'class="active"' : '' ?>>
                         <?php
                         echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoices'), array('controller' => 'invoices', 'action' => 'index'), array('title' => __('invoices management'), 'escape' => false));
                         ?>
                     </li>
-                    <li <?php echo $this->params['controller'] == 'companies' ? 'class="active"' : '' ?>>
+                    <li <?php echo $this->params['controller'] == 'products' ? 'class="active"' : '' ?>>
                         <?php
-                        echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('Companies'), array('controller' => 'companies', 'action' => 'index'), array('title' => __('companies management'), 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Products'), array('controller' => 'products', 'action' => 'index'), array('title' => __('products management'), 'escape' => false));
                         ?>
                     </li>
                     <li <?php echo $this->params['controller'] == 'clients' ? 'class="active"' : '' ?>>
@@ -23,9 +28,9 @@
                         echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('Clients'), array('controller' => 'clients', 'action' => 'index'), array('title' => __('clients management'), 'escape' => false));
                         ?>
                     </li>
-                    <li <?php echo $this->params['controller'] == 'products' ? 'class="active"' : '' ?>>
+                    <li <?php echo $this->params['controller'] == 'companies' ? 'class="active"' : '' ?>>
                         <?php
-                        echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Products'), array('controller' => 'products', 'action' => 'index'), array('title' => __('products management'), 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('Companies'), array('controller' => 'companies', 'action' => 'index'), array('title' => __('companies management'), 'escape' => false));
                         ?>
                     </li>
                 </ul>
@@ -41,6 +46,7 @@
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">                            
+                            <li><?php echo $this->Html->link(__('New order'), array('controller' => 'orders', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('New invoice'), array('controller' => 'invoices', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('New product'), array('controller' => 'products', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('New client'), array('controller' => 'clients', 'action' => 'add')); ?></li>

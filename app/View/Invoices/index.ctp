@@ -7,7 +7,7 @@
             <tr>
                 <th><?php echo $this->Paginator->sort('company_name'); ?></th>
                 <th><?php echo $this->Paginator->sort('client_name'); ?></th>
-                <th><?php echo $this->Paginator->sort('invoice_date'); ?></th>
+                <th><?php echo $this->Paginator->sort('document_date'); ?></th>
                 <th><?php echo $this->Paginator->sort('code'); ?></th>
                 <th><?php echo $this->Paginator->sort('gross_amount'); ?></th>
                 <th><?php echo $this->Paginator->sort('tax_amount'); ?></th>
