@@ -11,5 +11,4 @@ class TaxDataReader extends ClientDataReader {
         return $this->extractFields($data['Client'], array('tax_rate'));
     }
 
-    
 }

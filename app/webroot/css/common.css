@@ -48,8 +48,17 @@ td.actions span.glyphicon {
     margin-right: 5px;
 }
 
+.order-date label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 .document-code input, .document-date select {    
     margin-left: 5px;
+}
+
+.order-date select {
+    margin-right: 5px;
 }
 
 .add-line-action {
