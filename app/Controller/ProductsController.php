@@ -8,7 +8,10 @@ class ProductsController extends AppController {
 
     public function index() {
         $this->Product->recursive = 0;
-        $this->set('products', $this->Paginator->paginate('Product', array('Product.company_id' => $this->Workspace->get('id'))));
+        $conditions = array('Product.company_id' => $this->Workspace->get('id'));
+        if(!empty($this->request->query['filter']['Product.name'])) $conditions['Product.name LIKE'] = '%' . $this->request->query['filter']['Product.name'] . '%';
+        if(!empty($this->request->query['filter']['Product.code'])) $conditions['Product.code'] = $this->request->query['filter']['Product.code'];
+        $this->set('products', $this->Paginator->paginate('Product', $conditions));
     }
 
     public function add() {

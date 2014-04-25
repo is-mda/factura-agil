@@ -1,5 +1,7 @@
 <h1 class="main-title"><span class="glyphicon glyphicon-list-alt"></span> <?= __('Products') . ' ' . __('management') ?></h1>
-<?php if (!empty($products)): ?><div class="panel panel-primary">
+<?= $this->element('products_filters') ?>
+<?php if (!empty($products)): ?>
+    <div class="panel panel-primary">
         <div class="panel-heading"><?php echo __('Products'); ?></div>
 
         <table class="table table-striped table-hover">
@@ -21,7 +23,7 @@
                     <td class="actions">
                         <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $product['Product']['id']), array('escape' => false, 'title' => __('Edit'), 'class' => 'btn btn-default btn-sm')); ?>
-                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ', array('action' => 'delete', $product['Product']['id']), array('escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-default btn-sm'), __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
+                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ', array('action' => 'delete', $product['Product']['id']), array('escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-default btn-sm delete'), __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
                         </div>                         
                     </td>
                 </tr>

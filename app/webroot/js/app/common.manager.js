@@ -17,8 +17,16 @@ App.CommonManager = function() {
             window.open($(evt.target).closest('a').attr('href'));
         });
     };
+    
+    var _moveDeleteLinkHiddenForms = function() {
+        $('a.delete').prev('form').each(function(i, el) {
+            $(el).appendTo('body');
+        });
+    };
+    
     var init = function() {
         _initExternalLinks();
+        _moveDeleteLinkHiddenForms();
     };
 
     App.addInitializer(init);

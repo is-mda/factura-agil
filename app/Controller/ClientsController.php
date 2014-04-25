@@ -8,7 +8,10 @@ class ClientsController extends AppController {
 
     public function index() {
         $this->Client->recursive = 0;
-        $this->set('clients', $this->Paginator->paginate('Client', array('Client.company_id' => $this->Workspace->get('id'))));
+        $conditions = array('Client.company_id' => $this->Workspace->get('id'));
+        if(!empty($this->request->query['filter']['Client.name'])) $conditions['Client.name LIKE'] = '%' . $this->request->query['filter']['Client.name'] . '%';
+        if(!empty($this->request->query['filter']['Client.country'])) $conditions['Client.country'] = $this->request->query['filter']['Client.country'];        
+        $this->set('clients', $this->Paginator->paginate('Client', $conditions));
     }
 
     public function add() {

@@ -34,7 +34,7 @@
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu">
                                 <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-print"></span> ' . __('Print'), array('action' => 'view', $invoice['Invoice']['id'], 'print' => 1), array('escape' => false, 'class' => 'external')); ?></li>
-                                <li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ' . __('Delete'), array('action' => 'delete', $invoice['Invoice']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $invoice['Invoice']['id'])); ?></li>
+                                <li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ' . __('Delete'), array('action' => 'delete', $invoice['Invoice']['id']), array('escape' => false, 'class' => 'delete'), __('Are you sure you want to delete # %s?', $invoice['Invoice']['id'])); ?></li>
                             </ul>
                         </div> 
                     </td>

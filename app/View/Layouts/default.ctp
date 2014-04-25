@@ -35,6 +35,7 @@
     <?php echo $this->Html->script(array('app/app'));?>
     <?php echo $this->Html->script(array('app/common.manager'));?>
     <?php echo $this->Html->script(array('app/panel.collapse'));?>
+    <?php echo $this->Html->script(array('app/filters.manager'));?>
     <?php echo $this->fetch('scriptBottom'); ?>
     
 </body>
