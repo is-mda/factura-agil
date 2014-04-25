@@ -21,9 +21,11 @@
                     <td><?php echo h($client['Client']['phone']); ?>&nbsp;</td>
                     <td><?php echo h($client['Client']['created']); ?>&nbsp;</td>
                     <td class="actions">
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span>', array('controller' => 'invoices', 'action' => 'add', $client['Client']['id']), array('escape' => false)); ?>
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $client['Client']['id']), array('escape' => false)); ?>
-                        <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $client['Client']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $client['Client']['id'])); ?>
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span>', array('controller' => 'invoices', 'action' => 'add', $client['Client']['id']), array('escape' => false, 'title' => __('Invoice'), 'class' => 'btn btn-default btn-sm')); ?>
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $client['Client']['id']), array('escape' => false, 'title' => __('Edit'), 'class' => 'btn btn-default btn-sm')); ?>
+                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $client['Client']['id']), array('escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-default btn-sm'), __('Are you sure you want to delete # %s?', $client['Client']['id'])); ?>
+                        </div>                            
                     </td>
                 </tr>
             <?php endforeach; ?>

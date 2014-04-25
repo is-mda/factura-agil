@@ -103,6 +103,10 @@ App.DocumentItemsManager = function() {
         return empty.length ? empty.first() : null;
     };
     
+    var onDocumentInitialized = function() {
+        if(!_searchEmptyLine()) _lineChange();
+    };
+    
     var onAddLine = function(evt) {
         evt.preventDefault();
         _addLine();
@@ -135,11 +139,13 @@ App.DocumentItemsManager = function() {
         return targetLine.length ? targetLine[0] : null;
     };
     
+    
     var init = function() {
         $(_config.addLineButtonSelector).click(onAddLine);
         $(_config.removeLinesButtonSelector).click(removeSelectedLines);
         $(_config.tableSelector).on('click', 'input[type=checkbox]', _checkRemoveButtonStatus);
         $(_config.tableSelector).on('change', 'input[data-evaluable=1]', onEvaluableInputChange);
+        $('body').on('document:initialized', onDocumentInitialized);
     };
 
     App.addInitializer(init);

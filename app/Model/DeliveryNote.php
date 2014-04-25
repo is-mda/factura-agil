@@ -1,7 +1,8 @@
 <?php
 
 App::uses('DocumentType', 'Model');
-App::uses('DeliveryDataCopyStrategy', 'Lib');
+App::uses('DeliveryDataCopyStrategy', 'Lib/DataCopyStrategy');
+App::uses('DeliveryNoteFromOrderDataCopyStrategy', 'Lib/DataCopyStrategy');
 
 class DeliveryNote extends DocumentType {
 
@@ -13,4 +14,9 @@ class DeliveryNote extends DocumentType {
     protected function getCopyStrategy($params) {
         return new DeliveryDataCopyStrategy($params);
     }
+
+    protected function getCopyFromOrderStrategy($params) {
+        return new DeliveryNoteFromOrderDataCopyStrategy($params);
+    }
+
 }

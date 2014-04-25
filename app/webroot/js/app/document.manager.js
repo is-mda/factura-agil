@@ -16,6 +16,7 @@ App.DocumentManager = function() {
     var init = function() {
         $(_config.linesSelector).on('document_items:change', _onDocumentItemsChange);
         App.CommonManager.parseCurrency();
+        $('body').trigger('document:initialized');
     };
 
     App.addInitializer(init);

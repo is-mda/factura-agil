@@ -19,8 +19,10 @@
                     <td><?= $this->Number->currency($product['Product']['price'], 'EUR'); ?>&nbsp;</td>
                     <td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
                     <td class="actions">
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $product['Product']['id']), array('escape' => false)); ?>
-                        <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $product['Product']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $product['Product']['id']), array('escape' => false, 'title' => __('Edit'), 'class' => 'btn btn-default btn-sm')); ?>
+                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ', array('action' => 'delete', $product['Product']['id']), array('escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-default btn-sm'), __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
+                        </div>                         
                     </td>
                 </tr>
             <?php endforeach; ?>

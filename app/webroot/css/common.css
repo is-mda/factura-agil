@@ -24,7 +24,7 @@
 }
 
 td.actions span.glyphicon {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .pull-right.pagination {
@@ -102,5 +102,9 @@ input[type=number]::-webkit-outer-spin-button {
 .barcode-wrapper .glyphicon {
     margin-right: 5px;
     font-size: 16px;
+    vertical-align: middle;
+}
+
+.table>tbody>tr>td {
     vertical-align: middle;
 }

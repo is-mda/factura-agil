@@ -1,6 +1,6 @@
 <?php
 
-App::uses('DocumentDataCopyStrategy', 'Lib');
+App::uses('DocumentDataCopyStrategy', 'Lib/DataCopyStrategy');
 App::uses('CompanyDataReader', 'Lib/DataReader');
 App::uses('ClientDataReader', 'Lib/DataReader');
 App::uses('TaxDataReader', 'Lib/DataReader');
