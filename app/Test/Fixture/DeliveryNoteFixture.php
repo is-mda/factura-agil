@@ -17,7 +17,7 @@ class DeliveryNoteFixture extends CakeTestFixture {
     public $records = array(
         array(
             'id' => 1,
-            'document_id' => 1,
+            'document_id' => 3,
             'delivery_address_id' => 1,
             'delivery_date' => '2014-04-24',
             'created' => '2014-04-24 12:17:10',
