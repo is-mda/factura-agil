@@ -18,7 +18,7 @@ class OrderFixture extends CakeTestFixture {
     public $records = array(
         array(
             'id' => 1,
-            'document_id' => 1,
+            'document_id' => 2,
             'gross_amount' => 1,
             'delivery_address_id' => 1,
             'estimated_delivery_date' => '2014-04-24',

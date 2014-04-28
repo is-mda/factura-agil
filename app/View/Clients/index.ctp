@@ -24,9 +24,14 @@
                     <td><?php echo h($client['Client']['created']); ?>&nbsp;</td>
                     <td class="actions">
                         <div class="btn-group">
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span>', array('controller' => 'invoices', 'action' => 'add', $client['Client']['id']), array('escape' => false, 'title' => __('Invoice'), 'class' => 'btn btn-default btn-sm')); ?>
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $client['Client']['id']), array('escape' => false, 'title' => __('Edit'), 'class' => 'btn btn-default btn-sm')); ?>
                             <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $client['Client']['id']), array('escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-default btn-sm delete'), __('Are you sure you want to delete # %s?', $client['Client']['id'])); ?>
+                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Order'), array('controller' => 'orders', 'action' => 'add', $client['Client']['id']), array('escape' => false)); ?></li>
+                                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-send"></span> ' . __('Delivery Note'), array('controller' => 'delivery_notes', 'action' => 'add', $client['Client']['id']), array('escape' => false)); ?></li>
+                                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> ' . __('Invoice'), array('controller' => 'invoices', 'action' => 'add', $client['Client']['id']), array('escape' => false)); ?></li>
+                            </ul>                            
                         </div>                            
                     </td>
                 </tr>

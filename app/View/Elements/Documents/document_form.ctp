@@ -14,7 +14,7 @@ $clientName = $this->request->data('Document.client_name');
 <div class="form-inline pull-left document-code">
     <?php
     echo $this->Form->hidden('Document.id');
-    echo $this->Form->input('Document.code', array('class' => 'form-control', 'div' => array('class' => 'form-group')));
+    echo $this->Form->input('Document.code', array('class' => 'form-control', 'readonly' => true, 'div' => array('class' => 'form-group')));
     ?>   
 </div>
 

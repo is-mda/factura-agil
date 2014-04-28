@@ -32,7 +32,7 @@
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu">
                                 <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-send"></span> ' . __('Delivery Note'), array('controller' => 'delivery_notes', 'action' => 'add_from_order', $order['Order']['id']), array('escape' => false)); ?></li>
-                                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoice'), array('controller' => 'invoices', 'action' => 'add_from_order', $order['Order']['id']), array('escape' => false)); ?></li>
+                                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> ' . __('Invoice'), array('controller' => 'invoices', 'action' => 'add_from_order', $order['Order']['id']), array('escape' => false)); ?></li>
                                 <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-print"></span> ' . __('Print'), array('action' => 'view', $order['Order']['id'], 'print' => 1), array('escape' => false, 'class' => 'external')); ?></li>
                                 <li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> ' . __('Delete'), array('action' => 'delete', $order['Order']['id']), array('escape' => false, 'class' => 'delete'), __('Are you sure you want to delete # %s?', $order['Order']['id'])); ?></li>
                             </ul>

@@ -10,7 +10,7 @@
                 <ul class="nav navbar-nav">                
                     <li <?php echo $this->params['controller'] == 'orders' ? 'class="active"' : '' ?>>
                         <?php
-                        echo $this->Html->link('<span class="glyphicon glyphicon-inbox"></span> ' . __('Orders'), array('controller' => 'orders', 'action' => 'index'), array('title' => __('Orders management'), 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Orders'), array('controller' => 'orders', 'action' => 'index'), array('title' => __('Orders management'), 'escape' => false));
                         ?>
                     </li>
                     <li <?php echo $this->params['controller'] == 'delivery_notes' ? 'class="active"' : '' ?>>
@@ -20,12 +20,12 @@
                     </li>
                     <li <?php echo $this->params['controller'] == 'invoices' ? 'class="active"' : '' ?>>
                         <?php
-                        echo $this->Html->link('<span class="glyphicon glyphicon-folder-close"></span> ' . __('Invoices'), array('controller' => 'invoices', 'action' => 'index'), array('title' => __('Invoices management'), 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> ' . __('Invoices'), array('controller' => 'invoices', 'action' => 'index'), array('title' => __('Invoices management'), 'escape' => false));
                         ?>
                     </li>
                     <li <?php echo $this->params['controller'] == 'products' ? 'class="active"' : '' ?>>
                         <?php
-                        echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('Products'), array('controller' => 'products', 'action' => 'index'), array('title' => __('Products management'), 'escape' => false));
+                        echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span> ' . __('Products'), array('controller' => 'products', 'action' => 'index'), array('title' => __('Products management'), 'escape' => false));
                         ?>
                     </li>
                     <li <?php echo $this->params['controller'] == 'clients' ? 'class="active"' : '' ?>>
@@ -51,12 +51,13 @@
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">                            
-                            <li><?php echo $this->Html->link(__('New order'), array('controller' => 'orders', 'action' => 'add')); ?></li>
-                            <li><?php echo $this->Html->link(__('New delivery note'), array('controller' => 'delivery_notes', 'action' => 'add')); ?></li>
-                            <li><?php echo $this->Html->link(__('New invoice'), array('controller' => 'invoices', 'action' => 'add')); ?></li>
-                            <li><?php echo $this->Html->link(__('New product'), array('controller' => 'products', 'action' => 'add')); ?></li>
-                            <li><?php echo $this->Html->link(__('New client'), array('controller' => 'clients', 'action' => 'add')); ?></li>
-                            <li><?php echo $this->Html->link(__('New company'), array('controller' => 'companies', 'action' => 'add')); ?></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-shopping-cart"></span> ' . __('New order'), array('controller' => 'orders', 'action' => 'add'), array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-send"></span> ' . __('New delivery note'), array('controller' => 'delivery_notes', 'action' => 'add'), array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> ' . __('New invoice'), array('controller' => 'invoices', 'action' => 'add'), array('escape' => false)); ?></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span> ' . __('New product'), array('controller' => 'products', 'action' => 'add'), array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span> ' . __('New client'), array('controller' => 'clients', 'action' => 'add'), array('escape' => false)); ?></li>
+                            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> ' . __('New company'), array('controller' => 'companies', 'action' => 'add'), array('escape' => false)); ?></li>
                         </ul>
                     </div>
                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-log-out"></span> ', '/sign_out', array('title' => __('Sign out'), 'class' => 'btn btn-default navbar-btn btn-sm', 'escape' => false)); ?>                                    

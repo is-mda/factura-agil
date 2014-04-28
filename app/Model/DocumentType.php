@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppModel', 'Model');
+App::uses('DocumentCodeGenerator', 'Lib/Document');
 
 abstract class DocumentType extends AppModel {
 
@@ -11,17 +12,23 @@ abstract class DocumentType extends AppModel {
     abstract protected function getCopyStrategy($params);
     abstract protected function getCopyFromOrderStrategy($params);
     
+    private function setNextCode($data) {
+        return Hash::insert($data, 'Document.code', DocumentCodeGenerator::generateCode($this));      
+    }
+    
     public function prepareData($clientId, $companyId) {
-        return $this->getCopyStrategy(array(
+        $data = $this->getCopyStrategy(array(
             'client_id' => $clientId, 
             'company_id' => $companyId
         ))->getData();
+        return $this->setNextCode($data);
     }    
     
     public function prepareDataFromOrder($orderId) {
-        return $this->getCopyFromOrderStrategy(array(
+        $data = $this->getCopyFromOrderStrategy(array(
             'order_id' => $orderId
         ))->getData();
+        return $this->setNextCode($data);
     }
     
     public function deleteDocument() {

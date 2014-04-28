@@ -6,6 +6,7 @@ class ClientTest extends CakeTestCase {
 
     public $fixtures = array(
         'app.client',
+        'app.delivery_address',
         'app.company'
     );
 

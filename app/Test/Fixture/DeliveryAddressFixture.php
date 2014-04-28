@@ -17,10 +17,10 @@ class DeliveryAddressFixture extends CakeTestFixture {
     public $records = array(
         array(
             'id' => 1,
-            'address' => 'Lorem ipsum dolor sit amet',
-            'city' => 'Lorem ipsum dolor sit amet',
-            'country' => '',
-            'postal_code' => 'Lorem ip',
+            'address' => 'Main Street, 67',
+            'city' => 'Los Angeles',
+            'country' => 'US',
+            'postal_code' => '000851',
             'client_id' => 1
         ),
     );

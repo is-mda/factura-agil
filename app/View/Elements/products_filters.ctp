@@ -11,7 +11,7 @@
           <div class="col-sm-3">
             <div class="pull-right">
               <input type="reset" value="<?= __('Reset filters') ?>" class="btn btn-default" />
-              <input type="submit" value="<?= __('Filter clients') ?>" class="btn btn-default" />
+              <input type="submit" value="<?= __('Filter products') ?>" class="btn btn-default" />
             </div>               
           </div>              
         </div>
